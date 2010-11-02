@@ -1,0 +1,258 @@
+
+----------
+jsemer      Date: Tue Nov  2 15:17:22 EDT 2010  CSN: CSN-leap-examples-2
+                  Tue Nov  2 19:17:22 UTC 2010
+
+
+Directory experiments
+ leap-demos/               Locally Added               0 
+
+Directory experiments/leap-demos
+ regression/               Locally Added               0 
+
+Directory experiments/leap-demos/regression
+ regression.models         Locally Added               0 
+ regression.benchmarks     Locally Added               0 
+
+Directory experiments/leap-demos
+ nightly/                  Locally Added               0 
+
+Directory experiments/leap-demos/nightly
+ nightly.models            Locally Added               0 
+ nightly.benchmarks        Locally Added               0 
+
+Directory .
+ experiments/              Locally Added               0 
+
+Directory config/pm/leap
+ examples/                 Locally Added               0 
+
+Directory config/pm/leap/examples
+ fir_filter/               Locally Added               0 
+
+Directory config/pm/leap/examples/fir_filter
+ fir_filter_hw_exe.apm     Locally Added               0 
+ fir_filter_sw.apm         Locally Added               0 
+
+Directory config/pm/leap/examples
+ rrrtest/                  Locally Added               0 
+
+Directory config/pm/leap/examples/rrrtest
+ rrrtest_hybrid_htg-synplify.apm Locally Added               0 
+ rrrtest_hybrid_acp_nallatech.apm Locally Added               0 
+ rrrtest_hybrid_arriaII.apm Locally Added               0 
+ rrrtest_hybrid_exe.apm    Locally Added               0 
+ rrrtest_hybrid_htg.apm    Locally Added               0 
+ rrrtest_hybrid_xup_v5_pcie.apm Locally Added               0 
+ rrrtest_hybrid_htg_jtag.apm Locally Added               0 
+ rrrtest_hybrid_acp_jtag.apm Locally Added               0 
+ rrrtest_hybrid_acp_arches.apm Locally Added               0 
+ rrrtest_hybrid_xup.apm    Locally Added               0 
+
+Directory config/pm/leap/examples
+ multiplier/               Locally Added               0 
+
+Directory config/pm/leap/examples/multiplier
+ multiplier_exe.apm        Locally Added               0 
+
+Directory config/pm/leap/examples
+ switch_to_led/            Locally Added               0 
+
+Directory config/pm/leap/examples/switch_to_led
+ multiplier4x4_exe.apm     Locally Added               0 
+ echo4x4_xup.apm           Locally Added               0 
+ adder4x4_xup.apm          Locally Added               0 
+ square4x4_xup.apm         Locally Added               0 
+ echo4x4_exe.apm           Locally Added               0 
+ echo4x4_htg.apm           Locally Added               0 
+ adder4x4_exe.apm          Locally Added               0 
+ square4x4_exe.apm         Locally Added               0 
+ multiplier4x4_xup.apm     Locally Added               0 
+
+Directory config/pm/leap/examples
+ shmem/                    Locally Added               0 
+
+Directory config/pm/leap/examples/shmem
+ shmem_hybrid_htg.apm      Locally Added               0 
+
+Directory config/pm/leap/examples
+ simple/                   Locally Added               0 
+
+Directory config/pm/leap/examples/simple
+ multiplier_exe.apm        Locally Added               0 
+ switch2led_exe.apm        Locally Added               0 
+ echo_exe.apm              Locally Added               0 
+
+Directory config/pm/leap/examples
+ devtest/                  Locally Added               0 
+
+Directory config/pm/leap/examples/devtest
+ devtest_hybrid_exe.apm    Locally Added               0 
+ devtest_hybrid_htg.apm    Locally Added               0 
+
+Directory modules
+ apps/                     Locally Added               0 
+
+Directory modules/apps
+ examples/                 Locally Added               0 
+
+Directory modules/apps/examples
+ counter/                  Locally Added               0 
+
+Directory modules/apps/examples/counter
+ mkCounter.bsv             Locally Added               0 
+ counter_system.txt        Locally Added               0 
+ counter-system.cpp        Locally Added               0 
+ counter-system.h          Locally Added               0 
+ counter_system.awb        Locally Added               0 
+ System.bsv                Locally Added               0 
+
+Directory modules/apps/examples
+ hello/                    Locally Added               0 
+
+Directory modules/apps/examples/hello
+ hello.txt                 Locally Added               0 
+ hello.cpp                 Locally Added               0 
+ hello_streams_messages.dic Locally Added               0 
+ hello.h                   Locally Added               0 
+ hello.awb                 Locally Added               0 
+ hello_streams_id.dic      Locally Added               0 
+ hello.bsv                 Locally Added               0 
+
+Directory modules/apps/examples
+ fir-filter/               Locally Added               0 
+
+Directory modules/apps/examples/fir-filter
+ sw-only/                  Locally Added               0 
+
+Directory modules/apps/examples/fir-filter/sw-only
+ fixed.h                   Locally Added               0 
+ fir-filter-system.cpp     Locally Added               0 
+ fir-filter-system.h       Locally Added               0 
+ fir-filter-system.awb     Locally Added               0 
+ fir-filter-system.bsv     Locally Added               0 
+
+Directory modules/apps/examples/fir-filter
+ hw-only/                  Locally Added               0 
+
+Directory modules/apps/examples/fir-filter/hw-only
+ fir.in                    Locally Added               0 
+ fir-filter-system.cpp     Locally Added               0 
+ fir-filter-system.h       Locally Added               0 
+ fir-filter-system.awb     Locally Added               0 
+ fir-filter-system.bsv     Locally Added               0 
+
+Directory modules/apps/examples
+ rrrtest/                  Locally Added               0 
+
+Directory modules/apps/examples/rrrtest
+ rrrtest-server.h          Locally Added               0 
+ rrrtest.txt               Locally Added               0 
+ rrrtest.cpp               Locally Added               0 
+ rrrtest.rrr               Locally Added               0 
+ rrrtest-server.cpp        Locally Added               0 
+ rrrtest.h                 Locally Added               0 
+ rrrtest.awb               Locally Added               0 
+ rrrtest.bsv               Locally Added               0 
+
+Directory modules/apps/examples
+ multiplier/               Locally Added               0 
+
+Directory modules/apps/examples/multiplier
+ Multiplier.bsv            Locally Added               0 
+ multiplier-system.txt     Locally Added               0 
+ multiplier-system.cpp     Locally Added               0 
+ System.bsv                Locally Added               0 
+ mult_system.awb           Locally Added               0 
+ multiplier-system.h       Locally Added               0 
+
+Directory modules/apps/examples
+ shmem-test/               Locally Added               0 
+
+Directory modules/apps/examples/shmem-test
+ shmem-test.bsv            Locally Added               0 
+ shmem-test.cpp            Locally Added               0 
+ shmem-test.rrr            Locally Added               0 
+ shmem-test.h              Locally Added               0 
+ shmem-test.awb            Locally Added               0 
+
+Directory modules/apps/examples
+ switch2led/               Locally Added               0 
+
+Directory modules/apps/examples/switch2led
+ switch2led-system.h       Locally Added               0 
+ switch2led_system.awb     Locally Added               0 
+ switch2led_system.txt     Locally Added               0 
+ switch2led-system.cpp     Locally Added               0 
+ System.bsv                Locally Added               0 
+
+Directory modules/apps/examples
+ mulitplier_system/        Locally Added               0 
+
+Directory modules/apps/examples/mulitplier_system
+ multiplier_system.awb     Locally Added               0 
+ multiplier_system.bsv     Locally Added               0 
+ multiplier_system.txt     Locally Added               0 
+
+Directory modules/apps/examples
+ template/                 Locally Added               0 
+
+Directory modules/apps/examples/template
+ hybrid_application.txt    Locally Added               0 
+ hybrid_application.cpp    Locally Added               0 
+ hybrid_application_streams_messages.dic Locally Added               0 
+ hybrid_application.h      Locally Added               0 
+ hybrid_application.awb    Locally Added               0 
+ hybrid_application_streams_id.dic Locally Added               0 
+ hybrid_application.bsv    Locally Added               0 
+
+Directory modules/apps/examples
+ switch_to_led_system/     Locally Added               0 
+
+Directory modules/apps/examples/switch_to_led_system
+ switch_to_led_system.awb  Locally Added               0 
+ switch_to_led_system.bsv  Locally Added               0 
+ switch_to_led_system.txt  Locally Added               0 
+ calculation4x4/           Locally Added               0 
+
+Directory modules/apps/examples/switch_to_led_system/calculation4x4
+ adder/                    Locally Added               0 
+
+Directory modules/apps/examples/switch_to_led_system/calculation4x4/adder
+ adder4x4.awb              Locally Added               0 
+ adder4x4.bsv              Locally Added               0 
+
+Directory modules/apps/examples/switch_to_led_system/calculation4x4
+ square/                   Locally Added               0 
+
+Directory modules/apps/examples/switch_to_led_system/calculation4x4/square
+ square4x4.awb             Locally Added               0 
+ square4x4.bsv             Locally Added               0 
+
+Directory modules/apps/examples/switch_to_led_system/calculation4x4
+ multiplier/               Locally Added               0 
+
+Directory modules/apps/examples/switch_to_led_system/calculation4x4/multiplier
+ multiplier4x4.bsv         Locally Added               0 
+ multiplier4x4.awb         Locally Added               0 
+
+Directory modules/apps/examples/switch_to_led_system/calculation4x4
+ echo/                     Locally Added               0 
+
+Directory modules/apps/examples/switch_to_led_system/calculation4x4/echo
+ echo4x4.awb               Locally Added               0 
+ echo4x4.bsv               Locally Added               0 
+
+Directory modules/apps/examples
+ devtest/                  Locally Added               0 
+
+Directory modules/apps/examples/devtest
+ devtest.cpp               Locally Added               0 
+ devtest-streams-id.dic    Locally Added               0 
+ devtest.h                 Locally Added               0 
+ devtest.awb               Locally Added               0 
+ devtest.bsv               Locally Added               0 
+ devtest.txt               Locally Added               0 
+ devtest-streams-messages.dic Locally Added               0 
+
+Moved a number of demos/examples from leap to here.
