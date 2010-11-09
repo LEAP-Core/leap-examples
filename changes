@@ -256,3 +256,51 @@ Directory modules/apps/examples/devtest
  devtest-streams-messages.dic Locally Added               0 
 
 Moved a number of demos/examples from leap to here.
+
+----------
+jsemer      Date: Tue Nov  9 17:09:30 EST 2010  CSN: CSN-leap-examples-3
+                  Tue Nov  9 22:09:30 UTC 2010
+
+
+Directory config/pm/leap/examples/fir_filter
+ fir_filter_hw_exe.apm     Locally Modified            2 
+ fir_filter_sw.apm         Locally Modified            2 
+
+Directory config/pm/leap/examples/rrrtest
+ rrrtest_hybrid_htg-synplify.apm Locally Modified            2 
+ rrrtest_hybrid_acp_nallatech.apm Locally Modified            2 
+ rrrtest_hybrid_arriaII.apm Locally Modified            2 
+ rrrtest_hybrid_exe.apm    Locally Modified            2 
+ rrrtest_hybrid_htg.apm    Locally Modified            2 
+ rrrtest_hybrid_xup_v5_pcie.apm Locally Modified            2 
+ rrrtest_hybrid_htg_jtag.apm Locally Modified            2 
+ rrrtest_hybrid_acp_jtag.apm Locally Modified            2 
+ rrrtest_hybrid_xup.apm    Locally Modified            2 
+
+Directory config/pm/leap/examples/multiplier
+ multiplier_exe.apm        Locally Modified            2 
+
+Directory config/pm/leap/examples/switch_to_led
+ multiplier4x4_exe.apm     Locally Modified            2 
+ echo4x4_xup.apm           Locally Modified            2 
+ adder4x4_xup.apm          Locally Modified            2 
+ square4x4_xup.apm         Locally Modified            2 
+ echo4x4_exe.apm           Locally Modified            2 
+ adder4x4_exe.apm          Locally Modified            2 
+ echo4x4_htg.apm           Locally Modified            2 
+ square4x4_exe.apm         Locally Modified            2 
+ multiplier4x4_xup.apm     Locally Modified            2 
+
+Directory config/pm/leap/examples/shmem
+ shmem_hybrid_htg.apm      Locally Modified            2 
+
+Directory config/pm/leap/examples/simple
+ multiplier_exe.apm        Locally Modified            2 
+ switch2led_exe.apm        Locally Modified            2 
+ echo_exe.apm              Locally Modified            2 
+
+Directory config/pm/leap/examples/devtest
+ devtest_hybrid_exe.apm    Locally Modified            2 
+ devtest_hybrid_htg.apm    Locally Modified            2 
+
+Changed path to default benchmark.
