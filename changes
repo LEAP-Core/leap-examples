@@ -315,3 +315,38 @@ Directory config/pm/leap/examples/rrrtest
 
 Change apm that somehow got left as type 'HAsim' to
 type 'Leap'.
+
+----------
+mpellaue    Date: Wed Dec  1 15:11:18 EST 2010  CSN: CSN-leap-examples-5
+                  Wed Dec  1 20:11:18 UTC 2010
+
+
+Directory modules/apps/examples
+ hello/                    Locally Removed             4 
+
+Directory modules/apps/examples/hello
+ hello.txt                 Locally Removed             4 
+ hello.cpp                 Locally Removed             4 
+ hello_streams_messages.dic Locally Removed             4 
+ hello.h                   Locally Removed             4 
+ hello.awb                 Locally Removed             4 
+ hello_streams_id.dic      Locally Removed             4 
+ hello.bsv                 Locally Removed             4 
+
+Directory modules/apps/examples
+ template/                 Locally Removed             4 
+
+Directory modules/apps/examples/template
+ hybrid_application.txt    Locally Removed             4 
+ hybrid_application.cpp    Locally Removed             4 
+ hybrid_application_streams_messages.dic Locally Removed             4 
+ hybrid_application.h      Locally Removed             4 
+ hybrid_application.awb    Locally Removed             4 
+ hybrid_application_streams_id.dic Locally Removed             4 
+ hybrid_application.bsv    Locally Removed             4 
+
+
+* hello world and the application template erroneously lived in both
+repositories. Now they will live only in leap.
+
+Michael P.
