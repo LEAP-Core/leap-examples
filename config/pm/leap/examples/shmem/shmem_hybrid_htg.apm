@@ -3,12 +3,14 @@
 SaveParameters=0
 Description=Shared Memory Test and Benchmarking Program for HTG v5 PCIe
 File=shmem_hybrid_htg
-Version=2.1
+Version=2.2
 Name=Shared Memory Test and Benchmarking Program for HTG v5 PCIe
 DefaultBenchmark=config/bm/leap/demos.cfx/benchmarks/null.cfg
 Type=Leap
 Class=Asim::Model
 DefaultRunOpts=
+RootName=HW/SW Hybrid Project Foundation
+RootProvides=model
 
 [Model]
 DefaultAttributes=shmem unconnected hybrid project htg
@@ -16,20 +18,19 @@ model=HW/SW Hybrid Project Foundation
 
 [FPGA Environment]
 File=config/pm/hasim/submodels/fpgaenv/fpgaenv-hybrid-htg-v5-pcie.apm
-Packagehint=platforms
+Packagehint=leap
 
 [Shared Memory Test and Benchmarking Application]
 File=modules/apps/examples/shmem-test/shmem-test.awb
-Packagehint=leap
+Packagehint=leap-examples
 
 [HW/SW Hybrid Project Foundation]
-File=modules/project/project-hybrid.awb
-Packagehint=platforms
+File=modules/leap/build-support/project/project-hybrid.awb
+Packagehint=leap
 
 [Base Hybrid Application Environment]
-File=modules/application-env/hybrid/base/application-env-hybrid-base.awb
-Packagehint=platforms
-
+File=modules/leap/build-support/project/application-env/hybrid/base/application-env-hybrid-base.awb
+Packagehint=leap
 
 [HW/SW Hybrid Project Foundation/Requires]
 fpgaenv=FPGA Environment

@@ -2,7 +2,7 @@
 [Global]
 DefaultBenchmark=config/bm/leap/demos.cfx/benchmarks/null.cfg
 Type=Leap
-Version=2.1
+Version=2.2
 File=multiplier_exe
 SaveParameters=0
 Description=Bluespec Multiplier Example
@@ -10,10 +10,12 @@ Name=Bluespec Multiplier Example
 Type=Leap
 Class=Asim::Model
 DefaultRunOpts=--showfp=gui
+RootName=HW/SW Hybrid Project Foundation
+RootProvides=model
 
 [Bluespec Multiplier Example]
 File=modules/apps/examples/multiplier/mult_system.awb
-Packagehint=leap
+Packagehint=leap-examples
 
 [Model]
 DefaultAttributes=multiplier_system unconnected hybrid project exe
@@ -21,16 +23,15 @@ model=HW/SW Hybrid Project Foundation
 
 [FPGA Environment]
 File=config/pm/hasim/submodels/fpgaenv/fpgaenv-hybrid-exe.apm
-Packagehint=platforms
+Packagehint=leap
 
 [HW/SW Hybrid Project Foundation]
-File=modules/project/project-hybrid.awb
-Packagehint=platforms
+File=modules/leap/build-support/project/project-hybrid.awb
+Packagehint=leap
 
 [Base Hybrid Application Environment]
-File=modules/application-env/hybrid/base/application-env-hybrid-base.awb
-Packagehint=platforms
-
+File=modules/leap/build-support/project/application-env/hybrid/base/application-env-hybrid-base.awb
+Packagehint=leap
 
 [HW/SW Hybrid Project Foundation/Requires]
 fpgaenv=FPGA Environment

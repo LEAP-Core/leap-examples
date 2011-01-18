@@ -3,12 +3,14 @@
 SaveParameters=0
 Description=RRR Test and Benchmarking Program for ACP (Nallatech)
 File=rrrtest_hybrid_acp_jtag
-Version=2.1
+Version=2.2
 Name=RRR Test and Benchmarking Program for ACP (Nallatech)
 DefaultBenchmark=config/bm/leap/demos.cfx/benchmarks/null.cfg
 Type=Leap
 Class=Asim::Model
 DefaultRunOpts=
+RootName=HW/SW Hybrid Pipeline Build
+RootProvides=model
 
 [Model]
 DefaultAttributes=hybrid acp bluespec
@@ -16,15 +18,15 @@ model=HW/SW Hybrid Pipeline Build
 
 [FPGA Environment]
 File=config/pm/hasim/submodels/fpgaenv/fpgaenv-acp-m2c-nallatech-jtag-no-cache.apm
-Packagehint=platform-acp
+Packagehint=platforms-acp
 
 [Bluespec RRR Test and Benchmarking Program]
 File=modules/apps/examples/rrrtest/rrrtest.awb
-Packagehint=leap
+Packagehint=leap-examples
 
 [Base Hybrid Application Environment]
-File=modules/application-env/hybrid/base/application-env-hybrid-base.awb
-Packagehint=platforms
+File=modules/leap/build-support/project/application-env/hybrid/base/application-env-hybrid-base.awb
+Packagehint=leap
 
 [Base Hybrid Application Environment/Requires]
 hybrid_application=Bluespec RRR Test and Benchmarking Program
@@ -39,5 +41,5 @@ fpgaenv=FPGA Environment
 application_env=Base Hybrid Application Environment
 
 [HW/SW Hybrid Pipeline Build]
-File=modules/project/project-pipeline.awb
-Packagehint=platforms
+File=modules/leap/build-support/project/project-pipeline.awb
+Packagehint=leap

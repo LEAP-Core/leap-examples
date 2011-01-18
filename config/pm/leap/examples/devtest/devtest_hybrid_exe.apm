@@ -3,12 +3,14 @@
 SaveParameters=0
 Description=Device tester using hybrid streams
 File=devtest_hybrid_exe
-Version=2.1
+Version=2.2
 Name=Device Tester
 DefaultBenchmark=config/bm/leap/demos.cfx/benchmarks/null.cfg
 Type=Leap
 Class=Asim::Model
 DefaultRunOpts=--showfp=gui
+RootName=HW/SW Hybrid Project Foundation
+RootProvides=model
 
 [Model]
 DefaultAttributes=devtest unconnected hybrid project exe
@@ -16,20 +18,19 @@ model=HW/SW Hybrid Project Foundation
 
 [FPGA Environment]
 File=config/pm/hasim/submodels/fpgaenv/fpgaenv-hybrid-exe.apm
-Packagehint=platforms
+Packagehint=leap
 
 [Bluespec Device Tester]
 File=modules/apps/examples/devtest/devtest.awb
-Packagehint=leap
+Packagehint=leap-examples
 
 [HW/SW Hybrid Project Foundation]
-File=modules/project/project-hybrid.awb
-Packagehint=platforms
+File=modules/leap/build-support/project/project-hybrid.awb
+Packagehint=leap
 
 [Base Hybrid Application Environment]
-File=modules/application-env/hybrid/base/application-env-hybrid-base.awb
-Packagehint=platforms
-
+File=modules/leap/build-support/project/application-env/hybrid/base/application-env-hybrid-base.awb
+Packagehint=leap
 
 [HW/SW Hybrid Project Foundation/Requires]
 fpgaenv=FPGA Environment
