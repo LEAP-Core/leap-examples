@@ -18,8 +18,8 @@ model=HW/SW Hybrid Project Foundation
 
 [Soft Connections Hybrid Application Environment/Requires]
 connected_application=Default Software Connected Application
-platform_services=Platform Services
-soft_connections_lib=Soft Connections Library
+platform_services=Standard Platform Services
+soft_connections_lib=Standard Soft Connections Lib
 
 [Default Software Connected Application]
 File=modules/leap/build-support/project/application-env/hybrid/soft-connections/default-sw/connected-application-default-sw.awb
@@ -38,25 +38,29 @@ Packagehint=leap
 
 [HW/SW Hybrid Project Foundation/Requires]
 application_env=Soft Connections Hybrid Application Environment
-fpgaenv=FPGA Environment
-project_common=Hybrid Project Common Utilities
+fpgaenv=Hybrid Simulation FPGA Environment
+project_common=Default Hybrid Project Common Utilities
 
 [Multiplier system with Soft Connections]
 File=modules/apps/examples/mulitplier_system/multiplier_system.awb
 Packagehint=leap-examples
 
-[Platform Services]
+
+
+
+
+[Standard Platform Services]
 File=config/pm/hasim/submodels/platform-services/standard-platform-services.apm
 Packagehint=leap
 
-[Soft Connections Library]
-File=config/pm/hasim/submodels/common/soft-connections-lib.apm
-Packagehint=leap
-
-[FPGA Environment]
+[Hybrid Simulation FPGA Environment]
 File=config/pm/hasim/submodels/fpgaenv/fpgaenv-hybrid-exe.apm
 Packagehint=leap
 
-[Hybrid Project Common Utilities]
+[Standard Soft Connections Lib]
+File=config/pm/hasim/submodels/common/soft-connections-lib.apm
+Packagehint=leap
+
+[Default Hybrid Project Common Utilities]
 File=config/pm/hasim/submodels/common/project-common-default.apm
 Packagehint=leap

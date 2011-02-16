@@ -16,17 +16,11 @@ DefaultRunOpts=
 DefaultAttributes=hybrid htg bluespec
 model=HW/SW Hybrid Project Foundation
 
-[FPGA Environment]
-File=config/pm/hasim/submodels/fpgaenv/hasim-fpgaenv-acp-m2c.apm
-Packagehint=platforms-acp
 
 [HW/SW Hybrid Project Foundation]
 File=modules/leap/build-support/project/project-hybrid.awb
 Packagehint=leap
 
-[Hybrid Project Common Utilities]
-File=config/pm/hasim/submodels/common/project-common-default.apm
-Packagehint=leap
 
 [Base Hybrid Application Environment]
 File=modules/leap/build-support/project/application-env/hybrid/base/application-env-hybrid-base.awb
@@ -37,9 +31,17 @@ File=modules/apps/examples/rrrtest/rrrtest.awb
 Packagehint=leap-examples
 
 [HW/SW Hybrid Project Foundation/Requires]
-project_common=Hybrid Project Common Utilities
-fpgaenv=FPGA Environment
+project_common=Default Hybrid Project Common Utilities
+fpgaenv=Hybrid ACP M2 Compute Environment
 application_env=Base Hybrid Application Environment
 
 [Base Hybrid Application Environment/Requires]
 hybrid_application=Bluespec RRR Test and Benchmarking Program
+
+[Default Hybrid Project Common Utilities]
+File=config/pm/hasim/submodels/common/project-common-default.apm
+Packagehint=leap
+
+[Hybrid ACP M2 Compute Environment]
+File=config/pm/hasim/submodels/fpgaenv/hasim-fpgaenv-acp-m2c.apm
+Packagehint=platforms-acp
