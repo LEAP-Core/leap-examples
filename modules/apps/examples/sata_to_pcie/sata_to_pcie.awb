@@ -1,0 +1,19 @@
+********************************************************************
+* Awb module specification
+********************************************************************
+
+%AWB_START
+
+%name Bluespec SATA to PCIE Test and Benchmarking Program
+%desc Bluespec SATA to PCIE Test and Benchmarking Program (Forward data we get from SATA to PCIE)
+
+%attributes sata_to_pcie unconnected hybrid
+
+%provides hybrid_application
+
+%sources -t BSV  -v PUBLIC  sata_to_pcie.bsv
+%sources -t H    -v PUBLIC  sata_to_pcie.h sata_to_pcie_server.h
+%sources -t CPP  -v PRIVATE sata_to_pcie.cpp sata_to_pcie_server.cpp
+%sources -t RRR  -v PUBLIC  sata_to_pcie.rrr
+
+%AWB_END

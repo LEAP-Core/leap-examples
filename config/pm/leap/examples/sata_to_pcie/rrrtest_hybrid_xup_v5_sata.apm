@@ -1,0 +1,48 @@
+
+[Global]
+SaveParameters=0
+Description=RRR Test and Benchmarking Program for XUP v5 PCIE
+File=rrrtest_hybrid_xup_v5_sata
+Version=2.2
+Name=RRR Test and Benchmarking Program for XUP v5 PCIE
+DefaultBenchmark=config/bm/leap/demos.cfx/benchmarks/null.cfg
+Type=Leap
+Class=Asim::Model
+DefaultRunOpts=
+RootName=HW/SW Hybrid Pipeline Build
+RootProvides=model
+
+[Model]
+DefaultAttributes=rrrtest unconnected hybrid project htg
+model=HW/SW Hybrid Pipeline Build
+
+[Base Hybrid Application Environment]
+File=modules/leap/build-support/project/application-env/hybrid/base/application-env-hybrid-base.awb
+Packagehint=leap
+
+[Base Hybrid Application Environment/Requires]
+hybrid_application=Bluespec SATA to PCIE Test and Benchmarking Program
+
+[Default Hybrid Project Common Utilities]
+File=config/pm/hasim/submodels/common/project-common-default.apm
+Packagehint=leap
+
+[HW/SW Hybrid Pipeline Build/Requires]
+project_common=Default Hybrid Project Common Utilities
+fpgaenv=Hybrid XUP-v5 PCIE SATA FPGA Test Environment
+application_env=Base Hybrid Application Environment
+
+[HW/SW Hybrid Pipeline Build]
+File=modules/leap/build-support/project/project-pipeline.awb
+Packagehint=leap
+
+[Hybrid XUP-v5 PCIE SATA FPGA Test Environment/Params]
+MODEL_CLOCK_DIVIDER=4
+
+[Hybrid XUP-v5 PCIE SATA FPGA Test Environment]
+File=config/pm/hasim/submodels/fpgaenv/fpgaenv-hybrid-xup-v5-pcie-sata.apm
+Packagehint=leap
+
+[Bluespec SATA to PCIE Test and Benchmarking Program]
+File=modules/apps/examples/sata_to_pcie/sata_to_pcie.awb
+Packagehint=leap-examples

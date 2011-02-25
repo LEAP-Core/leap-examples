@@ -1,0 +1,9 @@
+service SATATOPCIERRR
+{
+
+    server sw (cpp, method) <- hw(bsv,method)
+    {
+       method SataData (in UINT32[32] sataData);
+    };
+};
+
