@@ -45,6 +45,8 @@ module mkApplication#(VIRTUAL_PLATFORM vp)();
     XUPV5_SERDES_DRIVER       sataDriver = llpi.physicalDrivers.sataDriver;
     Clock rxClk = sataDriver.rxusrclk0;
     Reset rxRst = sataDriver.rxusrrst0;
+    Clock txClk = sataDriver.txusrclk;
+    Reset txRst = sataDriver.txusrrst;
     
     // instantiate stubs
     ClientStub_SATATOPCIERRR clientStub <- mkClientStub_SATATOPCIERRR(llpi.rrrClient);
@@ -52,6 +54,8 @@ module mkApplication#(VIRTUAL_PLATFORM vp)();
    
     FIFO#(XUPV5_SERDES_WORD) serdes_word_fifo <- mkSizedBRAMFIFO(fifo_sz, clocked_by rxClk, reset_by rxRst);
     SyncFIFOIfc#(XUPV5_SERDES_WORD) serdes_word_sync_fifo <- mkSyncFIFOToCC(16,rxClk, rxRst);
+    SyncFIFOIfc#(XUPV5_SERDES_WORD) serdes_word_to_tx_fifo <- mkSyncFIFO(16,rxClk, rxRst, txClk);   
+    Reg#(Bit#(32)) serdes_word_wire <- mkDWire(0);
    
     rule getSATAData(True);
        let data <- sataDriver.receive0();
@@ -61,11 +65,23 @@ module mkApplication#(VIRTUAL_PLATFORM vp)();
     rule crossClockSATAData(True);
       serdes_word_fifo.deq();
       serdes_word_sync_fifo.enq(serdes_word_fifo.first());
+      serdes_word_to_tx_fifo.enq(serdes_word_fifo.first());
     endrule
    
-    rule sendToSW (True);
+    rule deqSyncFIFO (True);
        serdes_word_sync_fifo.deq();
-       clientStub.makeRequest_SataData(zeroExtend(pack(serdes_word_sync_fifo.first())));        
+       serdes_word_wire <= zeroExtend(pack(serdes_word_sync_fifo.first()));
     endrule
+   
+   
+    rule sendToSW(True);
+       clientStub.makeRequest_SataData(serdes_word_wire);        
+    endrule
+   
+    rule loopback(True);
+       serdes_word_to_tx_fifo.deq();
+       sataDriver.send0(serdes_word_to_tx_fifo.first());        
+    endrule
+      
     
 endmodule
