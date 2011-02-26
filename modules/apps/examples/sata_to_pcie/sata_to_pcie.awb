@@ -11,6 +11,8 @@
 
 %provides hybrid_application
 
+%requires stream_capture_fifo
+
 %sources -t BSV  -v PUBLIC  sata_to_pcie.bsv
 %sources -t H    -v PUBLIC  sata_to_pcie.h sata_to_pcie_server.h
 %sources -t CPP  -v PRIVATE sata_to_pcie.cpp sata_to_pcie_server.cpp

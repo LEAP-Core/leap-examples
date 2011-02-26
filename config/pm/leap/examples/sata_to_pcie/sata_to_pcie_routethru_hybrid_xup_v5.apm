@@ -46,3 +46,10 @@ Packagehint=leap
 [Bluespec SATA to PCIE Test and Benchmarking Program]
 File=modules/apps/examples/sata_to_pcie/sata_to_pcie.awb
 Packagehint=leap-examples
+
+[Bluespec SATA to PCIE Test and Benchmarking Program/Requires]
+stream_capture_fifo=StreamCaptureFIFO
+
+[StreamCaptureFIFO]
+File=modules/bsv-libraries/bluespec/StreamCaptureFIFO/src/stream_capture_fifo.awb
+Packagehint=bsv-libraries
