@@ -62,7 +62,18 @@ SATATOPCIERRR_SERVER_CLASS::Poll()
 void
 SATATOPCIERRR_SERVER_CLASS::SataData(UINT32  sataData)
 {
-    printf("Received SataData %x\n", sataData);  
+   static UINT32 cnt;
+   cnt++;
+   UINT32 lsb = sataData & 255;
+   UINT32 msb = (sataData >> 9) & 255; 
+   if ((cnt % 8) == 0)
+   {
+      printf("%x,%x\n", lsb,msb);  
+   }
+   else
+   {
+      printf("%x,%x ",lsb,msb);
+   }
 }
 
 

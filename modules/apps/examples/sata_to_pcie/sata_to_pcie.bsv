@@ -55,7 +55,7 @@ module mkApplication#(VIRTUAL_PLATFORM vp)();
     NumTypeParam#(16383) fifo_sz = 0;
    
     FIFO#(XUPV5_SERDES_WORD) serdes_word_fifo <- mkSizedBRAMFIFO(fifo_sz, clocked_by rxClk, reset_by rxRst);
-    FIFOF#(XUPV5_SERDES_WORD) stream_fifo <- mkStreamCaptureFIFOF(1024, clocked_by rxClk, reset_by rxRst);
+    FIFOF#(XUPV5_SERDES_WORD) stream_fifo <- mkStreamCaptureFIFOF(4096, clocked_by rxClk, reset_by rxRst);
     SyncFIFOIfc#(XUPV5_SERDES_WORD) serdes_word_sync_fifo <- mkSyncFIFOToCC(16,rxClk, rxRst);
     SyncFIFOIfc#(XUPV5_SERDES_WORD) serdes_word_to_tx_fifo <- mkSyncFIFO(16,rxClk, rxRst, txClk);   
     Reg#(Maybe#(XUPV5_SERDES_WORD)) serdes_word_wire <- mkDWire(tagged Invalid, clocked_by rxClk, reset_by rxRst);
