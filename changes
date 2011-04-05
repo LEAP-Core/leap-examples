@@ -450,3 +450,52 @@ Directory config/pm/leap/examples/devtest
  devtest_hybrid_htg.apm    Locally Modified            6 
 
 Updated stale models.
+
+----------
+mpellaue    Date: Tue Apr  5 15:49:22 EDT 2011  CSN: CSN-leap-examples-14
+                  Tue Apr  5 19:49:22 UTC 2011
+
+
+Directory config/pm/leap/examples/fir_filter
+ fir_filter_hw_exe.apm     Locally Modified           13 
+ fir_filter_sw.apm         Locally Modified           13 
+
+Directory config/pm/leap/examples/rrrtest
+ rrrtest_hybrid_htg-synplify.apm Locally Modified           13 
+ rrrtest_hybrid_acp_nallatech.apm Locally Modified           13 
+ rrrtest_hybrid_exe.apm    Locally Modified           13 
+ rrrtest_hybrid_htg.apm    Locally Modified           13 
+ rrrtest_hybrid_xup_v5_pcie.apm Locally Modified           13 
+ rrrtest_hybrid_htg_jtag.apm Locally Modified           13 
+ rrrtest_hybrid_acp_arches.apm Locally Modified           13 
+ rrrtest_hybrid_xup.apm    Locally Modified           13 
+
+Directory config/pm/leap/examples/multiplier
+ multiplier_exe.apm        Locally Modified           13 
+
+Directory config/pm/leap/examples/switch_to_led
+ multiplier4x4_exe.apm     Locally Modified           13 
+ echo4x4_xup.apm           Locally Modified           13 
+ adder4x4_xup.apm          Locally Modified           13 
+ square4x4_xup.apm         Locally Modified           13 
+ echo4x4_exe.apm           Locally Modified           13 
+ adder4x4_exe.apm          Locally Modified           13 
+ echo4x4_htg.apm           Locally Modified           13 
+ square4x4_exe.apm         Locally Modified           13 
+ multiplier4x4_xup.apm     Locally Modified           13 
+
+Directory config/pm/leap/examples/shmem
+ shmem_hybrid_htg.apm      Locally Modified           13 
+
+Directory config/pm/leap/examples/simple
+ multiplier_exe.apm        Locally Modified           13 
+ switch2led_exe.apm        Locally Modified           13 
+ echo_exe.apm              Locally Modified           13 
+
+Directory config/pm/leap/examples/devtest
+ devtest_hybrid_exe.apm    Locally Modified           13 
+ devtest_hybrid_htg.apm    Locally Modified           13 
+
+
+* Change all models to use Build Pipeline (if not doing so already).
+* Change all models to use full Soft Services not just Soft Connections.

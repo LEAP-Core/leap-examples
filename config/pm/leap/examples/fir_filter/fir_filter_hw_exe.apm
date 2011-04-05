@@ -9,26 +9,18 @@ DefaultBenchmark=config/bm/leap/demos.cfx/benchmarks/null.cfg
 Type=Leap
 Class=Asim::Model
 DefaultRunOpts=
-RootName=HW/SW Hybrid Project Foundation
+RootName=HW/SW Hybrid Pipeline Build
 RootProvides=model
 
 [Model]
 DefaultAttributes=fir_filter_hw unconnected hybrid project exe
-model=HW/SW Hybrid Project Foundation
+model=HW/SW Hybrid Pipeline Build
 
-
-[HW/SW Hybrid Project Foundation]
-File=modules/leap/build-support/project/project-hybrid.awb
-Packagehint=leap
 
 [Base Hybrid Application Environment]
 File=modules/leap/build-support/project/application-env/hybrid/base/application-env-hybrid-base.awb
 Packagehint=leap
 
-[HW/SW Hybrid Project Foundation/Requires]
-fpgaenv=Hybrid Simulation FPGA Environment
-application_env=Base Hybrid Application Environment
-project_common=Default Hybrid Project Common Utilities
 
 [HW only FIR Filter Demo]
 File=modules/apps/examples/fir-filter/hw-only/fir-filter-system.awb
@@ -37,11 +29,19 @@ Packagehint=leap-examples
 [Base Hybrid Application Environment/Requires]
 hybrid_application=HW only FIR Filter Demo
 
-
 [Default Hybrid Project Common Utilities]
 File=config/pm/hasim/submodels/common/project-common-default.apm
 Packagehint=leap
 
 [Hybrid Simulation FPGA Environment]
 File=config/pm/hasim/submodels/fpgaenv/fpgaenv-hybrid-exe.apm
+Packagehint=leap
+
+[HW/SW Hybrid Pipeline Build/Requires]
+project_common=Default Hybrid Project Common Utilities
+fpgaenv=Hybrid Simulation FPGA Environment
+application_env=Base Hybrid Application Environment
+
+[HW/SW Hybrid Pipeline Build]
+File=modules/leap/build-support/project/project-pipeline.awb
 Packagehint=leap

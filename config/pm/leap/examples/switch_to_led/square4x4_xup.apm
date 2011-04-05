@@ -9,40 +9,19 @@ Type=Leap
 Name=Switch to LED w. square - xup
 Class=Asim::Model
 DefaultRunOpts=
-RootName=HW/SW Hybrid Project Foundation
+RootName=HW/SW Hybrid Pipeline Build
 RootProvides=model
 
 [Model]
 DefaultAttributes=square switch2led demo connected slave hybrid project xup
-model=HW/SW Hybrid Project Foundation
-
-
-[Soft Connections Hybrid Application Environment/Requires]
-connected_application=Default Software Connected Application
-platform_services=Standard Platform Services
-soft_connections_lib=Standard Soft Connections Lib
+model=HW/SW Hybrid Pipeline Build
 
 [Default Software Connected Application]
 File=modules/leap/build-support/project/application-env/hybrid/soft-connections/default-sw/connected-application-default-sw.awb
 Packagehint=leap
 
-[HW/SW Hybrid Project Foundation]
-File=modules/leap/build-support/project/project-hybrid.awb
-Packagehint=leap
-
 [Default Software Connected Application/Requires]
 hardware_system=Switch in to LED out system
-
-[Soft Connections Hybrid Application Environment]
-File=modules/leap/build-support/project/application-env/hybrid/soft-connections/application-env-hybrid-soft-conn.awb
-Packagehint=leap
-
-[HW/SW Hybrid Project Foundation/Requires]
-fpgaenv=Hybrid XUPv2 Serial FPGA Environment
-application_env=Soft Connections Hybrid Application Environment
-project_common=Default Hybrid Project Common Utilities
-
-
 
 [Switch in to LED out system/Requires]
 calculation4x4=Switch2led - 4x4 square
@@ -55,8 +34,6 @@ Packagehint=leap-examples
 File=modules/apps/examples/switch_to_led_system/switch_to_led_system.awb
 Packagehint=leap-examples
 
-
-
 [Standard Platform Services]
 File=config/pm/hasim/submodels/platform-services/standard-platform-services.apm
 Packagehint=leap
@@ -68,10 +45,28 @@ Packagehint=leap
 [Hybrid XUPv2 Serial FPGA Environment/Params]
 MODEL_CLOCK_MULTIPLIER=2
 
-[Standard Soft Connections Lib]
-File=config/pm/hasim/submodels/common/soft-connections-lib.apm
-Packagehint=leap
-
 [Default Hybrid Project Common Utilities]
 File=config/pm/hasim/submodels/common/project-common-default.apm
 Packagehint=leap
+
+[Soft Services Submodel]
+File=config/pm/hasim/submodels/common/soft-services.apm
+Packagehint=leap
+
+[HW/SW Hybrid Pipeline Build]
+File=modules/leap/build-support/project/project-pipeline.awb
+Packagehint=leap
+
+[HW/SW Hybrid Pipeline Build/Requires]
+project_common=Default Hybrid Project Common Utilities
+fpgaenv=Hybrid XUPv2 Serial FPGA Environment
+application_env=Soft Services Hybrid Application Environment
+
+[Soft Services Hybrid Application Environment]
+File=modules/leap/build-support/project/application-env/hybrid/soft-services/application-env-hybrid-soft-service.awb
+Packagehint=leap
+
+[Soft Services Hybrid Application Environment/Requires]
+platform_services=Standard Platform Services
+soft_services=Soft Services Submodel
+connected_application=Default Software Connected Application
