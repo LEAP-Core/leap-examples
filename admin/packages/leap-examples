@@ -6,4 +6,5 @@ Lock=asim-leap-examples
 Description=Description of leap-examples
 Name=leap-examples
 Tag=HEAD
-CSN=CSN-leap-examples-14
+CSN=CSN-leap-examples-15
+Dependencies=leap/HEAD

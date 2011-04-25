@@ -20,32 +20,33 @@ model=HW/SW Hybrid Pipeline Build
 File=modules/apps/examples/rrrtest/rrrtest.awb
 Packagehint=leap-examples
 
-
-[Base Hybrid Application Environment]
-File=modules/leap/build-support/project/application-env/hybrid/base/application-env-hybrid-base.awb
-Packagehint=leap
-
-
-
-[Base Hybrid Application Environment/Requires]
-hybrid_application=Bluespec RRR Test and Benchmarking Program
-
 [Default Hybrid Project Common Utilities]
 File=config/pm/hasim/submodels/common/project-common-default.apm
 Packagehint=leap
 
-[Hybrid ACP M2 Compute Environment - No Central Cache - FPGA0 (Nallatech)]
-File=config/pm/hasim/submodels/fpgaenv/fpgaenv-acp-m2c-nallatech-no-cache-fpga0.apm
-Packagehint=platforms-acp
-
-[HW/SW Hybrid Pipeline Build/Params]
-WAIT_FOR_HARDWARE=0
 
 [HW/SW Hybrid Pipeline Build/Requires]
 project_common=Default Hybrid Project Common Utilities
-fpgaenv=Hybrid ACP M2 Compute Environment - No Central Cache - FPGA0 (Nallatech)
+fpgaenv=Hybrid ACP M2 Compute Environment - No Central Cache (Nallatech)
 application_env=Base Hybrid Application Environment
 
 [HW/SW Hybrid Pipeline Build]
 File=modules/leap/build-support/project/project-pipeline.awb
 Packagehint=leap
+
+[Hybrid ACP M2 Compute Environment - No Central Cache (Nallatech)]
+File=config/pm/hasim/submodels/fpgaenv/fpgaenv-acp-m2c-nallatech-no-cache.apm
+Packagehint=leap-platforms-acp
+
+[Hybrid ACP M2 Compute Environment - No Central Cache (Nallatech)/Params]
+MODEL_CLOCK_DIVIDER=8
+
+
+
+
+[Base Hybrid Application Environment]
+File=modules/leap/build-support/project/application-env/hybrid/base/application-env-hybrid-base.awb
+Packagehint=leap
+
+[Base Hybrid Application Environment/Requires]
+hybrid_application=Bluespec RRR Test and Benchmarking Program

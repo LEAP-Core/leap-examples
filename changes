@@ -499,3 +499,19 @@ Directory config/pm/leap/examples/devtest
 
 * Change all models to use Build Pipeline (if not doing so already).
 * Change all models to use full Soft Services not just Soft Connections.
+
+----------
+mcadler     Date: Mon Apr 25 18:33:25 EDT 2011  CSN: CSN-leap-examples-15
+                  Mon Apr 25 22:33:25 UTC 2011
+
+
+Directory config/pm/leap/examples/rrrtest
+ rrrtest_hybrid_acp_nallatech.apm Locally Modified           14 
+
+Directory admin/packages
+ leap-examples             Locally Modified           14 
+
+- Depend on leap
+- RRR test ACP was using the FPGA0 no cache environment.  For reasons
+  unknown this fails map.  Switched to standard no central cache version
+  for now.
