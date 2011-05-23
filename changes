@@ -515,3 +515,28 @@ Directory admin/packages
 - RRR test ACP was using the FPGA0 no cache environment.  For reasons
   unknown this fails map.  Switched to standard no central cache version
   for now.
+
+----------
+mpellaue    Date: Mon May 23 16:52:53 EDT 2011  CSN: CSN-leap-examples-16
+                  Mon May 23 20:52:53 UTC 2011
+
+
+Directory experiments
+ leap-demos/               Locally Removed            15 
+
+Directory experiments/leap-demos
+ regression/               Locally Removed            15 
+
+Directory experiments/leap-demos/regression
+ regression.models         Locally Removed            15 
+ regression.benchmarks     Locally Removed            15 
+
+Directory experiments/leap-demos
+ nightly/                  Locally Removed            15 
+
+Directory experiments/leap-demos/nightly
+ nightly.models            Locally Removed            15 
+ nightly.benchmarks        Locally Removed            15 
+
+
+* Rename mis-named experiments directory from "demos" to "examples".
