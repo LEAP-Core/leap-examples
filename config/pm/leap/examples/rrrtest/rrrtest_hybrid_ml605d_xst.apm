@@ -1,0 +1,46 @@
+
+[Global]
+SaveParameters=0
+Description=A part of physical device testing
+File=test_rrr_605d_xst
+Version=2.2
+Name=VIP Test: RRR loopback test for ML605 over PCIe DMA
+Type=Leap
+Class=Asim::Model
+DefaultBenchmark=
+DefaultRunOpts=
+RootName=VIP HW/SW ViCo Hybrid Project Foundation
+RootProvides=model
+
+[Model]
+DefaultAttributes=hasim inorder vip simulation
+model=VIP HW/SW ViCo Hybrid Project Foundation
+
+[Base Hybrid Application Environment/Requires]
+hybrid_application=Bluespec RRR Test and Benchmarking Program
+
+[Base Hybrid Application Environment]
+File=modules/leap/build-support/project/application-env/hybrid/base/application-env-hybrid-base.awb
+Packagehint=leap
+
+
+[VIP HW/SW ViCo Hybrid Project Foundation/Requires]
+project_common=Default Hybrid Project Common Utilities
+fpgaenv=Hybrid ML605 V6 FPGA Environment (PCIe DMA, ViCo)
+application_env=Base Hybrid Application Environment
+
+[VIP HW/SW ViCo Hybrid Project Foundation]
+File=modules/leap/build-support/project/project-vico/project-hybrid.awb
+Packagehint=leap
+
+[Default Hybrid Project Common Utilities]
+File=config/pm/hasim/submodels/common/project-common-default.apm
+Packagehint=leap
+
+[Hybrid ML605 V6 FPGA Environment (PCIe DMA, ViCo)]
+File=config/pm/hasim/submodels/fpgaenv/fpgaenv-hybrid-605d-xst.apm
+Packagehint=leap
+
+[Bluespec RRR Test and Benchmarking Program]
+File=modules/apps/examples/rrrtest/rrrtest.awb
+Packagehint=leap-examples
