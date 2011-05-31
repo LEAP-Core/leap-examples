@@ -540,3 +540,14 @@ Directory experiments/leap-demos/nightly
 
 
 * Rename mis-named experiments directory from "demos" to "examples".
+
+----------
+mpellaue    Date: Tue May 31 10:51:35 EDT 2011  CSN: CSN-leap-examples-18
+                  Tue May 31 14:51:35 UTC 2011
+
+
+Directory modules/apps/examples/fir-filter/hw-only
+ fir-filter-system.bsv     Locally Modified           17 
+
+
+* Update fir filter to not break FixedPoint abstraction anymore.

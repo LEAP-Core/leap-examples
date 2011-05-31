@@ -46,7 +46,7 @@ module mkApplication#(VIRTUAL_PLATFORM vp) ();
 
     rule process (!initializingCoeffs);
 
-        FIR_VAL v = FixedPoint { fxpt: signExtend(inputVals.sub(curInput)) };
+        FIR_VAL v = unpack(pack((inputVals.sub(curInput))));
         fir.put(v);
         curInput <= curInput + 1;
         
