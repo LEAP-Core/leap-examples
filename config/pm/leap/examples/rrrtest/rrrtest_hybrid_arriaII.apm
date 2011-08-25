@@ -16,14 +16,12 @@ RootProvides=model
 DefaultAttributes=hello unconnected hybrid project xup
 model=HW/SW Hybrid Pipeline Build
 
-
 [Base Hybrid Application Environment]
-File=modules/leap/build-support/project/application-env/hybrid/base/application-env-hybrid-base.awb
+File=modules/leap/build-support/project/application-env/base/application-env-hybrid-base.awb
 Packagehint=leap
 
 [Base Hybrid Application Environment/Requires]
 hybrid_application=Bluespec RRR Test and Benchmarking Program
-
 
 [HW/SW Hybrid Pipeline Build]
 File=modules/leap/build-support/project/project-pipeline.awb
@@ -34,22 +32,16 @@ project_common=Default Hybrid Project Common Utilities
 fpgaenv=Hybrid evaluation-arriaII-JTAG FPGA Environment
 application_env=Base Hybrid Application Environment
 
-
 [Bluespec RRR Test and Benchmarking Program]
 File=modules/apps/examples/rrrtest/rrrtest.awb
 Packagehint=leap-examples
 
-[HW/SW Hybrid Pipeline Build/Params]
-WAIT_FOR_HARDWARE=0
 
 [Hybrid evaluation-arriaII-JTAG FPGA Environment]
-File=config/pm/hasim/submodels/fpgaenv/fpgaenv-hybrid-evaluation-arriaII-jtag.apm
+File=config/pm/leap/submodels/fpgaenv/fpgaenv-hybrid-evaluation-arriaII-jtag.apm
 Packagehint=leap
 
-[Hybrid evaluation-arriaII-JTAG FPGA Environment/Params]
-MODEL_CLOCK_DIVIDER=1
-MODEL_CLOCK_MULTIPLIER=1
 
 [Default Hybrid Project Common Utilities]
-File=config/pm/hasim/submodels/common/project-common-default.apm
+File=config/pm/leap/submodels/common/project-common-default.apm
 Packagehint=leap

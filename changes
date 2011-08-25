@@ -551,3 +551,56 @@ Directory modules/apps/examples/fir-filter/hw-only
 
 
 * Update fir filter to not break FixedPoint abstraction anymore.
+
+----------
+mpellaue    Date: Thu Aug 25 18:13:34 EDT 2011  CSN: CSN-leap-examples-19
+                  Thu Aug 25 22:13:34 UTC 2011
+
+
+Directory config/pm/leap/examples/fir_filter
+ fir_filter_hw_exe.apm     Locally Modified           18 
+ fir_filter_sw.apm         Locally Modified           18 
+
+Directory config/pm/leap/examples/rrrtest
+ rrrtest_hybrid_htg-synplify.apm Locally Modified           18 
+ rrrtest_hybrid_acp_nallatech.apm Locally Modified           18 
+ rrrtest_hybrid_arriaII.apm Locally Modified           18 
+ rrrtest_hybrid_exe.apm    Locally Modified           18 
+ rrrtest_hybrid_htg.apm    Locally Modified           18 
+ rrrtest_hybrid_ml605d_xst.apm Locally Modified           18 
+ rrrtest_hybrid_xup_v5_pcie.apm Locally Modified           18 
+ rrrtest_hybrid_htg_jtag.apm Locally Modified           18 
+ rrrtest_hybrid_acp_jtag.apm Locally Modified           18 
+ rrrtest_hybrid_xup.apm    Locally Modified           18 
+
+Directory config/pm/leap/examples/multiplier
+ multiplier_exe.apm        Locally Modified           18 
+
+Directory config/pm/leap/examples/switch_to_led
+ multiplier4x4_exe.apm     Locally Modified           18 
+ echo4x4_xup.apm           Locally Modified           18 
+ adder4x4_xup.apm          Locally Modified           18 
+ square4x4_xup.apm         Locally Modified           18 
+ echo4x4_exe.apm           Locally Modified           18 
+ adder4x4_exe.apm          Locally Modified           18 
+ echo4x4_htg.apm           Locally Modified           18 
+ square4x4_exe.apm         Locally Modified           18 
+ multiplier4x4_xup.apm     Locally Modified           18 
+
+Directory config/pm/leap/examples/shmem
+ shmem_hybrid_htg.apm      Locally Modified           18 
+
+Directory config/pm/leap/examples/simple
+ multiplier_exe.apm        Locally Modified           18 
+ switch2led_exe.apm        Locally Modified           18 
+ echo_exe.apm              Locally Modified           18 
+
+Directory config/pm/leap/examples/chipscope
+ chipscope_hybrid_xup_v5_sata.apm Locally Modified           18 
+
+Directory config/pm/leap/examples/devtest
+ devtest_hybrid_exe.apm    Locally Modified           18 
+ devtest_hybrid_htg.apm    Locally Modified           18 
+
+
+* Update stale .apm files.

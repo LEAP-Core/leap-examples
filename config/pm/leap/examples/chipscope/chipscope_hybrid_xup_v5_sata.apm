@@ -17,17 +17,15 @@ DefaultAttributes=rrrtest unconnected hybrid project htg
 model=HW/SW Hybrid Pipeline Build
 
 [Base Hybrid Application Environment]
-File=modules/leap/build-support/project/application-env/hybrid/base/application-env-hybrid-base.awb
+File=modules/leap/build-support/project/application-env/base/application-env-hybrid-base.awb
 Packagehint=leap
 
 [Base Hybrid Application Environment/Requires]
 hybrid_application=Bluespec Chipscope Test Program
 
 [Default Hybrid Project Common Utilities]
-File=config/pm/hasim/submodels/common/project-common-default.apm
+File=config/pm/leap/submodels/common/project-common-default.apm
 Packagehint=leap
-
-
 
 [HW/SW Hybrid Pipeline Build/Requires]
 project_common=Default Hybrid Project Common Utilities
@@ -42,9 +40,7 @@ Packagehint=leap
 File=modules/apps/examples/chipscope/chipscope.awb
 Packagehint=leap-examples
 
-[Hybrid XUP-v5 Chipscope FPGA Test Environment/Params]
-MODEL_CLOCK_DIVIDER=4
 
 [Hybrid XUP-v5 Chipscope FPGA Test Environment]
-File=config/pm/hasim/submodels/fpgaenv/fpgaenv-hybrid-xup-v5-chipscope.apm
+File=config/pm/leap/submodels/fpgaenv/fpgaenv-hybrid-xup-v5-chipscope.apm
 Packagehint=leap

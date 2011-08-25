@@ -16,11 +16,9 @@ RootProvides=model
 DefaultAttributes=fir_filter_hw unconnected hybrid project exe
 model=HW/SW Hybrid Pipeline Build
 
-
 [Base Hybrid Application Environment]
-File=modules/leap/build-support/project/application-env/hybrid/base/application-env-hybrid-base.awb
+File=modules/leap/build-support/project/application-env/base/application-env-hybrid-base.awb
 Packagehint=leap
-
 
 [HW only FIR Filter Demo]
 File=modules/apps/examples/fir-filter/hw-only/fir-filter-system.awb
@@ -30,11 +28,11 @@ Packagehint=leap-examples
 hybrid_application=HW only FIR Filter Demo
 
 [Default Hybrid Project Common Utilities]
-File=config/pm/hasim/submodels/common/project-common-default.apm
+File=config/pm/leap/submodels/common/project-common-default.apm
 Packagehint=leap
 
 [Hybrid Simulation FPGA Environment]
-File=config/pm/hasim/submodels/fpgaenv/fpgaenv-hybrid-exe.apm
+File=config/pm/leap/submodels/fpgaenv/fpgaenv-hybrid-exe.apm
 Packagehint=leap
 
 [HW/SW Hybrid Pipeline Build/Requires]

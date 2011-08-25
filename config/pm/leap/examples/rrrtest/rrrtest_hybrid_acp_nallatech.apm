@@ -21,9 +21,8 @@ File=modules/apps/examples/rrrtest/rrrtest.awb
 Packagehint=leap-examples
 
 [Default Hybrid Project Common Utilities]
-File=config/pm/hasim/submodels/common/project-common-default.apm
+File=config/pm/leap/submodels/common/project-common-default.apm
 Packagehint=leap
-
 
 [HW/SW Hybrid Pipeline Build/Requires]
 project_common=Default Hybrid Project Common Utilities
@@ -35,17 +34,14 @@ File=modules/leap/build-support/project/project-pipeline.awb
 Packagehint=leap
 
 [Hybrid ACP M2 Compute Environment - No Central Cache (Nallatech)]
-File=config/pm/hasim/submodels/fpgaenv/fpgaenv-acp-m2c-nallatech-no-cache.apm
+File=config/pm/leap/submodels/fpgaenv/fpgaenv-acp-m2c-nallatech-no-cache.apm
 Packagehint=leap-platforms-acp
 
 [Hybrid ACP M2 Compute Environment - No Central Cache (Nallatech)/Params]
-MODEL_CLOCK_DIVIDER=8
-
-
-
+XST_INSERT_IOBUF=0
 
 [Base Hybrid Application Environment]
-File=modules/leap/build-support/project/application-env/hybrid/base/application-env-hybrid-base.awb
+File=modules/leap/build-support/project/application-env/base/application-env-hybrid-base.awb
 Packagehint=leap
 
 [Base Hybrid Application Environment/Requires]

@@ -20,26 +20,21 @@ model=HW/SW Hybrid Pipeline Build
 File=modules/apps/examples/rrrtest/rrrtest.awb
 Packagehint=leap-examples
 
-
 [Base Hybrid Application Environment]
-File=modules/leap/build-support/project/application-env/hybrid/base/application-env-hybrid-base.awb
+File=modules/leap/build-support/project/application-env/base/application-env-hybrid-base.awb
 Packagehint=leap
-
 
 [Base Hybrid Application Environment/Requires]
 hybrid_application=Bluespec RRR Test and Benchmarking Program
 
-
 [Default Hybrid Project Common Utilities]
-File=config/pm/hasim/submodels/common/project-common-default.apm
+File=config/pm/leap/submodels/common/project-common-default.apm
 Packagehint=leap
 
 [Hybrid Simulation FPGA Environment]
-File=config/pm/hasim/submodels/fpgaenv/fpgaenv-hybrid-exe.apm
+File=config/pm/leap/submodels/fpgaenv/fpgaenv-hybrid-exe.apm
 Packagehint=leap
 
-[HW/SW Hybrid Pipeline Build/Params]
-WAIT_FOR_HARDWARE=0
 
 [HW/SW Hybrid Pipeline Build/Requires]
 project_common=Default Hybrid Project Common Utilities
