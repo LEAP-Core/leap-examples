@@ -604,3 +604,14 @@ Directory config/pm/leap/examples/devtest
 
 
 * Update stale .apm files.
+
+----------
+mpellaue    Date: Thu Sep  8 16:48:32 EDT 2011  CSN: CSN-leap-examples-20
+                  Thu Sep  8 20:48:32 UTC 2011
+
+
+Directory config/pm/leap/examples/rrrtest
+ rrrtest_hybrid_ml605d_xst.apm Locally Modified           19 
+
+
+* Updating ML605 RRR test for updated platform.

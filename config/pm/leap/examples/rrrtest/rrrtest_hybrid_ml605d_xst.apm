@@ -9,12 +9,12 @@ Type=Leap
 Class=Asim::Model
 DefaultBenchmark=
 DefaultRunOpts=
-RootName=HW/SW ViCo Hybrid Project Foundation
+RootName=HW/SW Hybrid Pipeline Build
 RootProvides=model
 
 [Model]
 DefaultAttributes=hasim inorder vip simulation
-model=HW/SW ViCo Hybrid Project Foundation
+model=HW/SW Hybrid Pipeline Build
 
 [Base Hybrid Application Environment/Requires]
 hybrid_application=Bluespec RRR Test and Benchmarking Program
@@ -22,8 +22,6 @@ hybrid_application=Bluespec RRR Test and Benchmarking Program
 [Base Hybrid Application Environment]
 File=modules/leap/build-support/project/application-env/base/application-env-hybrid-base.awb
 Packagehint=leap
-
-
 
 [Default Hybrid Project Common Utilities]
 File=config/pm/leap/submodels/common/project-common-default.apm
@@ -39,12 +37,14 @@ Packagehint=leap-examples
 
 [Hybrid ML605 V6 FPGA Environment (PCIe DMA, ViCo)/Params]
 RESET_ACTIVE_HIGH=1
+MODEL_CLOCK_FREQ=66
+GENERATE_VICO=1
 
-[HW/SW ViCo Hybrid Project Foundation]
-File=modules/leap/build-support/project/project-vico/project-hybrid.awb
-Packagehint=leap
-
-[HW/SW ViCo Hybrid Project Foundation/Requires]
+[HW/SW Hybrid Pipeline Build/Requires]
 project_common=Default Hybrid Project Common Utilities
 fpgaenv=Hybrid ML605 V6 FPGA Environment (PCIe DMA, ViCo)
 application_env=Base Hybrid Application Environment
+
+[HW/SW Hybrid Pipeline Build]
+File=modules/leap/build-support/project/project-pipeline.awb
+Packagehint=leap
