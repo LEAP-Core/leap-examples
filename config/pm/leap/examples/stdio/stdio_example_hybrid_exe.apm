@@ -1,0 +1,53 @@
+
+[Global]
+SaveParameters=0
+Description=Hybrid Standard I/O Example
+File=stdio_example_hybrid_exe
+Version=2.2
+Name=Hybrid Standard I/O Example
+DefaultBenchmark=config/bm/leap/demos.cfx/benchmarks/null.cfg
+Type=Leap
+Class=Asim::Model
+DefaultRunOpts=
+RootName=HW/SW Hybrid Pipeline Build
+RootProvides=model
+
+[Model]
+DefaultAttributes=test connected slave hybrid project exe
+model=HW/SW Hybrid Pipeline Build
+
+[Default Software Connected Application]
+File=modules/leap/build-support/project/application-env/soft-services/default-sw/connected-application-default-sw.awb
+Packagehint=leap
+
+[Default Software Connected Application/Requires]
+hardware_system=StdIO Example
+
+[Default Hybrid Project Common Utilities]
+File=config/pm/leap/submodels/common/project-common-default.apm
+Packagehint=leap
+
+[Soft Services Hybrid Application Environment]
+File=modules/leap/build-support/project/application-env/soft-services/application-env-hybrid-soft-service.awb
+Packagehint=leap
+
+[HW/SW Hybrid Pipeline Build/Requires]
+project_common=Default Hybrid Project Common Utilities
+fpgaenv=Hybrid Simulation FPGA Environment - No Memory
+application_env=Soft Services Hybrid Application Environment
+
+[Soft Services Hybrid Application Environment/Requires]
+connected_application=Default Software Connected Application
+
+[HW/SW Hybrid Pipeline Build]
+File=modules/leap/build-support/project/project-pipeline.awb
+Packagehint=leap
+
+
+[Hybrid Simulation FPGA Environment - No Memory]
+File=config/pm/leap/submodels/fpgaenv/fpgaenv-hybrid-exe-no-memory.apm
+Packagehint=leap
+
+[StdIO Example]
+File=modules/apps/examples/stdio/stdio-example.awb
+Packagehint=leap-examples

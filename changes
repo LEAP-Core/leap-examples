@@ -625,3 +625,24 @@ Directory modules/apps/examples/sata_to_pcie
  sata_to_pcie.bsv          Locally Modified           20 
 
 Interface change to mkSizedBRAMFIFO().
+
+----------
+mcadler     Date: Fri Feb 17 00:06:59 EST 2012  CSN: CSN-leap-examples-22
+                  Fri Feb 17 05:06:59 UTC 2012
+
+
+Directory config/pm/leap/examples
+ stdio/                    Locally Added               0 
+
+Directory config/pm/leap/examples/stdio
+ stdio_example_hybrid_exe.apm Locally Added               0 
+
+Directory modules/apps/examples
+ stdio/                    Locally Added               0 
+
+Directory modules/apps/examples/stdio
+ stdio-example.awb         Locally Added               0 
+ stdio-example.bsv         Locally Added               0 
+ README                    Locally Added               0 
+
+Relatively simple example of writing and reading using StdIO.

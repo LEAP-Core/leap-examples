@@ -1,0 +1,6 @@
+StdIO Example
+
+Simple demonstration of LEAP standard I/O support.  A text file is written
+holding numbers.  Then, a Perl script is invoked as a pipe to convert the
+numbers to binary.  The binary values are read back by the Bluespec code and
+written as strings to STDOUT.
