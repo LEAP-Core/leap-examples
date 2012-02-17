@@ -41,6 +41,7 @@ typedef enum
     STATE_open_infile_rsp,
     STATE_read_data,
     STATE_sink_reads,
+    STATE_close_infile,
     STATE_sync,
     STATE_exit,
     STATE_finish
@@ -172,7 +173,8 @@ module [CONNECTED_MODULE] mkSystem ();
     // The second read rule receives the data.  It also detects the transition
     // to end of file.
     //
-    (* descending_urgency = "readData, readReq" *)
+    (* descending_urgency = "readReq, readData" *)
+    (* conservative_implicit_conditions *)
     rule readData (state == STATE_read_data);
         let rsp <- stdio.fread_rsp();
         if (rsp matches tagged Valid .v)
@@ -200,9 +202,14 @@ module [CONNECTED_MODULE] mkSystem ();
         end
         else
         begin
-            stdio.fclose(pHandle);
-            state <= STATE_sync;
+            state <= STATE_close_infile;
         end
+    endrule
+
+
+    rule closeInFile (state == STATE_close_infile);
+        stdio.fclose(pHandle);
+        state <= STATE_sync;
     endrule
 
 

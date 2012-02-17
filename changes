@@ -646,3 +646,13 @@ Directory modules/apps/examples/stdio
  README                    Locally Added               0 
 
 Relatively simple example of writing and reading using StdIO.
+
+----------
+mcadler     Date: Fri Feb 17 08:17:01 EST 2012  CSN: CSN-leap-examples-23
+                  Fri Feb 17 13:17:01 UTC 2012
+
+
+Directory modules/apps/examples/stdio
+ stdio-example.bsv         Locally Modified           22 
+
+Get rid of compiler warnings.
