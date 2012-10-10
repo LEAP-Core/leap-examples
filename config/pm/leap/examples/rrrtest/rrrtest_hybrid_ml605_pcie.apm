@@ -44,3 +44,6 @@ Packagehint=leap
 File=config/pm/leap/submodels/fpgaenv/fpgaenv-hybrid-ml605-pcie.apm
 Packagehint=leap
 
+[Hybrid ml605 PCIE FPGA Environment/Params]
+MODEL_CLOCK_FREQ=66
+RESET_ACTIVE_HIGH=1

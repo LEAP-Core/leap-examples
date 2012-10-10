@@ -666,3 +666,14 @@ Directory modules/apps/examples/rrrtest
  rrrtest.h                 Locally Modified           23 
 
 Update for new --help argument interface.
+
+----------
+kfleming    Date: Tue Oct  9 20:00:27 EDT 2012  CSN: CSN-leap-examples-27
+                  Wed Oct 10 00:00:27 UTC 2012
+
+
+Directory config/pm/leap/examples/rrrtest
+ rrrtest_hybrid_ml605_pcie.apm Locally Modified           26 
+
+
+Correct reset for rrrtest on ML605
