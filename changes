@@ -677,3 +677,14 @@ Directory config/pm/leap/examples/rrrtest
 
 
 Correct reset for rrrtest on ML605
+
+----------
+mcadler     Date: Mon Oct 29 09:52:44 EDT 2012  CSN: CSN-leap-examples-28
+                  Mon Oct 29 13:52:44 UTC 2012
+
+
+Directory config/pm/leap/examples/rrrtest
+ rrrtest_hybrid_ml605_pcie.apm Locally Modified           27 
+
+- 85MHz model clock
+- Use FPGA environment without central cache for faster compilation

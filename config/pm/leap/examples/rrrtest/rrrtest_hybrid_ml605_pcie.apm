@@ -33,17 +33,16 @@ Packagehint=leap
 
 [HW/SW Hybrid Pipeline Build/Requires]
 project_common=Default Hybrid Project Common Utilities
-fpgaenv=Hybrid ml605 PCIE FPGA Environment
+fpgaenv=Hybrid ML605 PCIE FPGA Environment - No Memory/Central Cache
 application_env=Base Hybrid Application Environment
 
 [HW/SW Hybrid Pipeline Build]
 File=modules/leap/build-support/project/project-pipeline.awb
 Packagehint=leap
 
-[Hybrid ml605 PCIE FPGA Environment]
-File=config/pm/leap/submodels/fpgaenv/fpgaenv-hybrid-ml605-pcie.apm
-Packagehint=leap
+[Hybrid ML605 PCIE FPGA Environment - No Memory/Central Cache/Params]
+MODEL_CLOCK_FREQ=85
 
-[Hybrid ml605 PCIE FPGA Environment/Params]
-MODEL_CLOCK_FREQ=66
-RESET_ACTIVE_HIGH=1
+[Hybrid ML605 PCIE FPGA Environment - No Memory/Central Cache]
+File=config/pm/leap/submodels/fpgaenv/fpgaenv-hybrid-ml605-pcie-no-memory.apm
+Packagehint=leap
