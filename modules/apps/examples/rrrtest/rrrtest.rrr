@@ -5,6 +5,35 @@ service RRRTEST
         method F2HOneWayTest     (in UINT8[8] which, in UINT64[64] length, out UINT64[64] cycles);
         method F2HTwoWayTest     (in UINT8[8] which, in UINT64[64] length, out UINT64[64] cycles);
         method F2HTwoWayPipeTest (in UINT8[8] which, in UINT64[64] length, out UINT64[64] cycles);
+
+        method H2FOneWayTest     (in UINT8[8] which, in UINT64[64] length);
+        method H2FOneWayDone     (in UINT8[8] dummy, out UINT64[64] dummy, out UINT64[64] cycles);
+
+        method H2FOneWayMsg8 (in UINT64[64] payload0,
+                              in UINT64[64] payload1,
+                              in UINT64[64] payload2,
+                              in UINT64[64] payload3,
+                              in UINT64[64] payload4,
+                              in UINT64[64] payload5,
+                              in UINT64[64] payload6,
+                              in UINT64[64] payload7);
+
+        method H2FOneWayMsg16(in UINT64[64] payload0,
+                              in UINT64[64] payload1,
+                              in UINT64[64] payload2,
+                              in UINT64[64] payload3,
+                              in UINT64[64] payload4,
+                              in UINT64[64] payload5,
+                              in UINT64[64] payload6,
+                              in UINT64[64] payload7,
+                              in UINT64[64] payload8,
+                              in UINT64[64] payload9,
+                              in UINT64[64] payload10,
+                              in UINT64[64] payload11,
+                              in UINT64[64] payload12,
+                              in UINT64[64] payload13,
+                              in UINT64[64] payload14,
+                              in UINT64[64] payload15);
     };
 
     server sw (cpp, method) <- hw (bsv, method)

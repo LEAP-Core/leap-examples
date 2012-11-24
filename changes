@@ -688,3 +688,15 @@ Directory config/pm/leap/examples/rrrtest
 
 - 85MHz model clock
 - Use FPGA environment without central cache for faster compilation
+
+----------
+mcadler     Date: Sat Nov 24 15:53:26 EST 2012  CSN: CSN-leap-examples-29
+                  Sat Nov 24 20:53:26 UTC 2012
+
+
+Directory modules/apps/examples/rrrtest
+ rrrtest.cpp               Locally Modified           28 
+ rrrtest.rrr               Locally Modified           28 
+ rrrtest.bsv               Locally Modified           28 
+
+Add host->FPGA one way tests.

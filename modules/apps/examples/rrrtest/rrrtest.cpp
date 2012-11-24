@@ -103,7 +103,7 @@ HYBRID_APPLICATION_CLASS::Main()
         
     // report results
     cout << "\n";
-    cout << "One-Way Test Results (small messages)\n";
+    cout << "One-Way FPGA->Host Test Results (small messages)\n";
     cout << "--------------------\n";
     cout << "FPGA cycles       = " << cycles << endl;
     cout << "Payload Bytes     = " << payload_bytes << endl;
@@ -128,7 +128,7 @@ HYBRID_APPLICATION_CLASS::Main()
         
     // report results
     cout << "\n";
-    cout << "One-Way Test Results (64 byte messages)\n";
+    cout << "One-Way FPGA->Host Test Results (64 byte messages)\n";
     cout << "--------------------\n";
     cout << "FPGA cycles       = " << cycles << endl;
     cout << "Payload Bytes     = " << big_payload_bytes << endl;
@@ -155,7 +155,7 @@ HYBRID_APPLICATION_CLASS::Main()
         
         // report results
         cout << "\n";
-        cout << "One-Way Test Results (128 byte messages)\n";
+        cout << "One-Way FPGA->Host Test Results (128 byte messages)\n";
         cout << "--------------------\n";
         cout << "FPGA cycles       = " << cycles << endl;
         cout << "Payload Bytes     = " << big_payload_bytes << endl;
@@ -181,7 +181,7 @@ HYBRID_APPLICATION_CLASS::Main()
         
         // report results
         cout << "\n";
-        cout << "One-Way Test Results (256 byte messages)\n";
+        cout << "One-Way FPGA->Host Test Results (256 byte messages)\n";
         cout << "--------------------\n";
         cout << "FPGA cycles       = " << cycles << endl;
         cout << "Payload Bytes     = " << big_payload_bytes << endl;
@@ -190,6 +190,81 @@ HYBRID_APPLICATION_CLASS::Main()
              << "                  = " << latency << " usec\n";
         cout << "Average Bandwidth = " << bandwidth << " MB/s\n";
     }
+
+
+    //
+    // One way host to FPGA tests.
+    //
+
+    //
+    // perform one-way test with 64 byte messages
+    //
+    clientStub->H2FOneWayTest(0, test_length);
+
+    for (UINT64 i = 0; i < test_length; i++)
+    {
+        clientStub->H2FOneWayMsg8(0, 1, 2, 3, 4, 5, 6, 7);
+    }
+
+    OUT_TYPE_H2FOneWayDone r = clientStub->H2FOneWayDone(0);
+    cycles = r.cycles;
+
+    // compute results
+    big_payload_bytes = payload_bytes * 8;
+    latency_c = double(cycles) / test_length;
+    if (fpga_freq != 0)
+    {
+        latency   = latency_c / fpga_freq;
+        bandwidth = (big_payload_bytes + header_bytes) / latency;
+    }
+        
+    // report results
+    cout << "\n";
+    cout << "One-Way Host->FPGA Test Results (64 byte messages)\n";
+    cout << "--------------------\n";
+    cout << "FPGA cycles       = " << cycles << endl;
+    cout << "Payload Bytes     = " << big_payload_bytes << endl;
+    cout << "Header Bytes      = " << header_bytes << endl;
+    cout << "Average Latency   = " << latency_c << " FPGA cycles\n" 
+         << "                  = " << latency << " usec\n";
+    cout << "Average Bandwidth = " << bandwidth << " MB/s\n";
+
+    if (longTestsSwitch.Value() != 0)
+    {
+        //
+        // perform one-way test with 128 byte messages
+        //
+        clientStub->H2FOneWayTest(1, test_length);
+
+        for (UINT64 i = 0; i < test_length; i++)
+        {
+            clientStub->H2FOneWayMsg16(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15);
+        }
+
+        OUT_TYPE_H2FOneWayDone r = clientStub->H2FOneWayDone(0);
+        cycles = r.cycles;
+
+        // compute results
+        big_payload_bytes = payload_bytes * 16;
+        latency_c = double(cycles) / test_length;
+        if (fpga_freq != 0)
+        {
+            latency   = latency_c / fpga_freq;
+            bandwidth = (big_payload_bytes + header_bytes) / latency;
+        }
+        
+        // report results
+        cout << "\n";
+        cout << "One-Way Host->FPGA Test Results (128 byte messages)\n";
+        cout << "--------------------\n";
+        cout << "FPGA cycles       = " << cycles << endl;
+        cout << "Payload Bytes     = " << big_payload_bytes << endl;
+        cout << "Header Bytes      = " << header_bytes << endl;
+        cout << "Average Latency   = " << latency_c << " FPGA cycles\n" 
+             << "                  = " << latency << " usec\n";
+        cout << "Average Bandwidth = " << bandwidth << " MB/s\n";
+    }
+
 
     //
     // perform two-way test

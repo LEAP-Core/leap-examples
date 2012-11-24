@@ -39,6 +39,9 @@ typedef enum
     STATE_f2hOneWay16,
     STATE_f2hOneWay32,
 
+    STATE_h2fOneWay8,
+    STATE_h2fOneWay16,
+
     STATE_f2hTwoWayReq1,
     STATE_f2hTwoWayResp1,
     STATE_f2hTwoWayReq16,
@@ -155,7 +158,74 @@ module mkApplication#(VIRTUAL_PLATFORM vp)();
         state <= STATE_idle;
         
     endrule
-    
+
+
+    //
+    // Host -> FPGA one-way test
+    //
+    rule start_h2f_oneway_test (state == STATE_idle);
+        
+        // accept request from host
+        let test <- serverStub.acceptRequest_H2FOneWayTest();
+        
+        // start the clock and let it rip
+        timer      <= curTick;
+        testLength <= test.length;
+        if (test.which == 0)
+            state <= STATE_h2fOneWay8;
+        else if (test.which == 1)
+            state <= STATE_h2fOneWay16;
+        
+    endrule
+
+    Reg#(Bit#(64)) f2hAccum <- mkReg(0);
+    Reg#(Bit#(64)) f2hCycles <- mkRegU();
+
+    rule do_h2f_oneway_test8 (state == STATE_h2fOneWay8);
+
+        let msg <- serverStub.acceptRequest_H2FOneWayMsg8();
+        f2hAccum <= f2hAccum ^
+                    msg.payload0 ^ msg.payload1 ^ msg.payload2 ^ msg.payload3 ^
+                    msg.payload4 ^ msg.payload5 ^ msg.payload6 ^ msg.payload7;
+
+        if (testLength == 1)
+        begin
+            f2hCycles <= curTick - timer;
+            state <= STATE_idle;
+        end
+
+        testLength <= testLength - 1;
+
+    endrule
+
+    rule do_h2f_oneway_test16 (state == STATE_h2fOneWay16);
+
+        let msg <- serverStub.acceptRequest_H2FOneWayMsg16();
+        f2hAccum <= f2hAccum ^
+                    msg.payload0 ^ msg.payload1 ^ msg.payload2 ^ msg.payload3 ^
+                    msg.payload4 ^ msg.payload5 ^ msg.payload6 ^ msg.payload7 ^
+                    msg.payload8 ^ msg.payload9 ^ msg.payload10 ^ msg.payload11 ^
+                    msg.payload12 ^ msg.payload13 ^ msg.payload14 ^ msg.payload15;
+
+        if (testLength == 1)
+        begin
+            f2hCycles <= curTick - timer;
+            state <= STATE_idle;
+        end
+
+        testLength <= testLength - 1;
+
+    endrule
+
+    rule start_h2f_oneway_done (state == STATE_idle);
+        
+        // accept request from host
+        let test <- serverStub.acceptRequest_H2FOneWayDone();
+        serverStub.sendResponse_H2FOneWayDone(f2hAccum, f2hCycles);
+        
+    endrule
+
+
     //
     // FPGA -> Host two-way test (unpipelined)
     //
