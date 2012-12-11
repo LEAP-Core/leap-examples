@@ -700,3 +700,13 @@ Directory modules/apps/examples/rrrtest
  rrrtest.bsv               Locally Modified           28 
 
 Add host->FPGA one way tests.
+
+----------
+mcadler     Date: Mon Dec 10 21:57:11 EST 2012  CSN: CSN-leap-examples-30
+                  Tue Dec 11 02:57:11 UTC 2012
+
+
+Directory config/pm/leap/examples/rrrtest
+ rrrtest_hybrid_vc707.apm  Locally Added               0 
+
+Add RRR test for VC707.
