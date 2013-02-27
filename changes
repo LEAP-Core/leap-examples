@@ -710,3 +710,13 @@ Directory config/pm/leap/examples/rrrtest
  rrrtest_hybrid_vc707.apm  Locally Added               0 
 
 Add RRR test for VC707.
+
+----------
+mcadler     Date: Wed Feb 27 09:34:01 EST 2013  CSN: CSN-leap-examples-31
+                  Wed Feb 27 14:34:01 UTC 2013
+
+
+Directory modules/apps/examples/stdio
+ stdio-example.bsv         Locally Modified           30 
+
+STDIO sync at end of run now automatic.

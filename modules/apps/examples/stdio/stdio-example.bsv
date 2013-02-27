@@ -42,8 +42,6 @@ typedef enum
     STATE_read_data,
     STATE_sink_reads,
     STATE_close_infile,
-    STATE_sync,
-    STATE_exit,
     STATE_finish
 } 
 STATE deriving (Bits, Eq);
@@ -209,26 +207,6 @@ module [CONNECTED_MODULE] mkSystem ();
 
     rule closeInFile (state == STATE_close_infile);
         stdio.fclose(pHandle);
-        state <= STATE_sync;
-    endrule
-
-
-    //
-    // Sync state with software, guaranteeing that all printf requests have
-    // been written.
-    //
-    rule sync (state == STATE_sync);
-        stdio.sync_req();
-
-        state <= STATE_exit;
-    endrule
-
-
-    //
-    // Software acknowledges sync
-    //
-    rule exit (state == STATE_exit);
-        stdio.sync_rsp();
 
         linkStarterFinishRun.send(0);
         state <= STATE_finish;
