@@ -789,3 +789,23 @@ with an empty HW component. However this proves out the build path.
 
 We should think about whether a SW-only version of these apps would be useful.
 This may require a new project foundation in LEAP.
+
+----------
+mpellaue    Date: Mon Sep  9 17:14:17 EDT 2013  CSN: CSN-leap-examples-33
+                  Mon Sep  9 21:14:17 UTC 2013
+
+
+Directory modules/leap/libli/li-hybrid-app
+ li-hybrid-app-null-hw.bsv Locally Modified           32 
+
+Directory modules/leap/libli/source-sink
+ source-sink.cpp           Locally Modified           32 
+
+Directory modules/leap/libli/riso
+ riso.cpp                  Locally Modified           32 
+
+Directory modules/leap/libli/edit-distance
+ edit-distance.cpp         Locally Modified           32 
+
+
+Fixup some license headers.
