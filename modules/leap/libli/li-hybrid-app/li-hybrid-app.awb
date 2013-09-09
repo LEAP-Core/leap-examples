@@ -1,0 +1,25 @@
+********************************************************************
+* Awb module specification
+********************************************************************
+
+%AWB_START
+
+%name LI Hybrid Application, Empty HW
+%desc Latency Insensitive Lib App (Hybrid HW/SW)
+
+%attributes hybrid
+
+%provides connected_application
+%requires li_application
+
+%notes README 
+
+%sources -t BSV  -v PUBLIC  li-hybrid-app-null-hw.bsv
+%sources -t H    -v PUBLIC  li-hybrid-app.h
+%sources -t CPP  -v PRIVATE li-hybrid-app.cpp
+
+%syslibrary -ltbb
+%library lib/libli/libli.so
+%include lib/libli
+
+%AWB_END

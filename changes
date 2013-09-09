@@ -720,3 +720,72 @@ Directory modules/apps/examples/stdio
  stdio-example.bsv         Locally Modified           30 
 
 STDIO sync at end of run now automatic.
+
+----------
+mpellaue    Date: Mon Sep  9 16:01:38 EDT 2013  CSN: CSN-leap-examples-32
+                  Mon Sep  9 20:01:38 UTC 2013
+
+
+Directory config/pm/leap/examples
+ libli/                    Locally Added               0 
+
+Directory config/pm/leap/examples/libli
+ hybrid/                   Locally Added               0 
+
+Directory config/pm/leap/examples/libli/hybrid
+ riso-hybrid-exe.apm       Locally Added               0 
+ edit-distance-hybrid-exe.apm Locally Added               0 
+ source-sink-hybrid-exe.apm Locally Added               0 
+ litest-hybrid-exe.apm     Locally Added               0 
+
+Directory config/pm/leap/examples/libli
+ sw-only/                  Locally Added               0 
+
+Directory modules/leap
+ libli/                    Locally Added               0 
+
+Directory modules/leap/libli
+ li-hybrid-app/            Locally Added               0 
+
+Directory modules/leap/libli/li-hybrid-app
+ li-hybrid-app.cpp         Locally Added               0 
+ li-hybrid-app.h           Locally Added               0 
+ li-hybrid-app.awb         Locally Added               0 
+ README                    Locally Added               0 
+ li-hybrid-app-null-hw.bsv Locally Added               0 
+
+Directory modules/leap/libli
+ source-sink/              Locally Added               0 
+
+Directory modules/leap/libli/source-sink
+ source-sink.cpp           Locally Added               0 
+ source-sink.awb           Locally Added               0 
+
+Directory modules/leap/libli
+ litest/                   Locally Added               0 
+
+Directory modules/leap/libli/litest
+ litest.cpp                Locally Added               0 
+ litest.awb                Locally Added               0 
+ README                    Locally Added               0 
+
+Directory modules/leap/libli
+ riso/                     Locally Added               0 
+
+Directory modules/leap/libli/riso
+ riso.awb                  Locally Added               0 
+ riso.cpp                  Locally Added               0 
+
+Directory modules/leap/libli
+ edit-distance/            Locally Added               0 
+
+Directory modules/leap/libli/edit-distance
+ edit-distance.awb         Locally Added               0 
+ edit-distance.cpp         Locally Added               0 
+
+
+Add some simple examples using libli. Currently these all use hybrid HW/SW apps
+with an empty HW component. However this proves out the build path.
+
+We should think about whether a SW-only version of these apps would be useful.
+This may require a new project foundation in LEAP.

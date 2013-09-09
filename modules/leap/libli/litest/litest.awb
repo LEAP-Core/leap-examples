@@ -1,0 +1,18 @@
+********************************************************************
+* Awb module specification
+********************************************************************
+
+%AWB_START
+
+%name LI Test 
+%desc Latency Insensitive Lib Test App
+
+%attributes hybrid libli
+
+%provides li_application
+
+%notes README 
+
+%sources -t CPP  -v PRIVATE litest.cpp
+
+%AWB_END

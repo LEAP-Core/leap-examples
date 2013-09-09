@@ -1,0 +1,18 @@
+********************************************************************
+* Awb module specification
+********************************************************************
+
+%AWB_START
+
+%name LI RISO
+%desc Latency Insensitive Random In Serial Out App
+
+%attributes hybrid libli
+
+%provides li_application
+
+%notes README 
+
+%sources -t CPP  -v PRIVATE riso.cpp
+
+%AWB_END
