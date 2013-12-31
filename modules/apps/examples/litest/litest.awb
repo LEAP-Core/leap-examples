@@ -1,0 +1,23 @@
+********************************************************************
+* Awb module specification
+********************************************************************
+
+%AWB_START
+
+%name Latency-insensitive Channel Test and Benchmarking Program
+%desc Latency-insensitive Channel Test and Benchmarking Program
+
+%attributes unconnected hybrid
+
+%provides connected_application
+
+%sources -t BSV -v PUBLIC  litest.bsv
+%sources -t H   -v PUBLIC  litest.h  
+%sources -t CPP -v PRIVATE litest.cpp
+%sources -t LOG -v PUBLIC  litest.log
+
+%param SYNTH_BOUNDARY mkConnectedApplication "name of synthesis boundary"
+%param --dynamic TOTAL_CHUNKS 100000 "total number of chunks to transfer"
+%param VERBOSE 0 "Enable debugging/statistics prints"
+
+%AWB_END

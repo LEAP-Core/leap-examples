@@ -1,0 +1,7 @@
+model -> FPGA0;
+common_services -> FPGA0;
+connected_application -> FPGA0;
+
+
+
+

@@ -809,3 +809,30 @@ Directory modules/leap/libli/edit-distance
 
 
 Fixup some license headers.
+
+----------
+keflemin    Date: Tue Dec 31 14:32:40 EST 2013  CSN: CSN-leap-examples-34
+                  Tue Dec 31 19:32:40 UTC 2013
+
+
+Directory modules/apps/examples
+ litest/                   Locally Added               0 
+
+Directory modules/apps/examples/litest
+ litest.log                Locally Added               0 
+ litest.cpp                Locally Added               0 
+ litest.h                  Locally Added               0 
+ litest.awb                Locally Added               0 
+ litest.bsv                Locally Added               0 
+ mappings/                 Locally Added               0 
+
+Directory modules/apps/examples/litest/mappings
+ single_fpga.awb           Locally Added               0 
+ single-fpga.map           Locally Added               0 
+ single_fpga.map           Locally Added               0 
+ dual_fpga.awb             Locally Added               0 
+ dual-fpga.map             Locally Added               0 
+ dual_fpga.map             Locally Added               0 
+
+
+Added test program for FPGA-software communication. 
