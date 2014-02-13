@@ -836,3 +836,49 @@ Directory modules/apps/examples/litest/mappings
 
 
 Added test program for FPGA-software communication. 
+
+----------
+mcadler     Date: Thu Feb 13 18:28:38 EST 2014  CSN: CSN-leap-examples-35
+                  Thu Feb 13 23:28:38 UTC 2014
+
+
+Directory modules/leap/libli/li-hybrid-app
+ li-hybrid-app.cpp         Locally Modified           34 
+ li-hybrid-app.h           Locally Modified           34 
+ li-hybrid-app-null-hw.bsv Locally Modified           34 
+
+Directory modules/leap/libli/source-sink
+ source-sink.cpp           Locally Modified           34 
+
+Directory modules/leap/libli/litest
+ litest.cpp                Locally Modified           34 
+
+Directory modules/leap/libli/riso
+ riso.cpp                  Locally Modified           34 
+
+Directory modules/leap/libli/edit-distance
+ edit-distance.cpp         Locally Modified           34 
+
+Directory modules/apps/examples/stdio
+ stdio-example.bsv         Locally Modified           34 
+
+Directory modules/apps/examples/litest
+ litest.cpp                Locally Modified           34 
+ litest.h                  Locally Modified           34 
+ litest.bsv                Locally Modified           34 
+
+Directory modules/apps/examples/rrrtest
+ rrrtest.cpp               Locally Modified           34 
+
+Directory modules/apps/examples/shmem-test
+ shmem-test.bsv            Locally Modified           34 
+ shmem-test.cpp            Locally Modified           34 
+ shmem-test.h              Locally Modified           34 
+
+Directory modules/apps/examples/sata_to_pcie
+ sata_to_pcie.cpp          Locally Modified           34 
+
+Directory modules/apps/examples/chipscope
+ chipscope.cpp             Locally Modified           34 
+
+Switch to BSD license.
