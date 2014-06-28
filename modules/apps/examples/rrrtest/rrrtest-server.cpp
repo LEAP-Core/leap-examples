@@ -59,8 +59,8 @@ RRRTEST_SERVER_CLASS::F2HOneWayMsg1(
 //    static int msg_count = 0;
 //    cout << "server: received one-way msg [" << msg_count++ << "]\t = " << hex << payload << dec << endl << flush;
 
-//    VERIFY(payload == 0x12345678abcdef2b,
-//           "F2HOneWayMsg1 unexpected payload: " << payload);
+    VERIFY(payload == 0x12345678abcdef2b,
+           "F2HOneWayMsg1 unexpected payload: " << payload);
 }
 
 void
@@ -74,7 +74,7 @@ RRRTEST_SERVER_CLASS::F2HOneWayMsg8(
     UINT64 payload6,
     UINT64 payload7)
 {
-/*
+
     VERIFY((payload0 == 1) &&
            (payload1 == 2) &&
            (payload2 == 3) &&
@@ -84,7 +84,7 @@ RRRTEST_SERVER_CLASS::F2HOneWayMsg8(
            (payload6 == 7) &&
            (payload7 == 8),
            "F2HOneWayMsg8: Unexpected payload");
-					 */
+					 
 }
 
 void
@@ -106,6 +106,23 @@ RRRTEST_SERVER_CLASS::F2HOneWayMsg16(
     UINT64 payload14,
     UINT64 payload15)
 {
+    VERIFY((payload0 == 1) &&
+           (payload1 == 2) &&
+           (payload2 == 3) &&
+           (payload3 == 4) &&
+           (payload4 == 5) &&
+           (payload5 == 6) &&
+           (payload6 == 7) &&
+           (payload7 == 8) &&
+           (payload8 == 9) &&
+           (payload9 == 10) &&
+           (payload10 == 11) &&
+           (payload11 == 12) &&
+           (payload12 == 13) &&
+           (payload13 == 14) &&
+           (payload14 == 15) &&
+           (payload15 == 16),
+           "F2HOneWayMsg16: Unexpected payload");
 }
 
 
@@ -144,12 +161,42 @@ RRRTEST_SERVER_CLASS::F2HOneWayMsg32(
     UINT64 payload30,
     UINT64 payload31)
 {
-/*
-    VERIFY((payload7 == 8) &&
+
+    VERIFY((payload0 == 1) &&
+           (payload1 == 2) &&
+           (payload2 == 3) &&
+           (payload3 == 4) &&
+           (payload4 == 5) &&
+           (payload5 == 6) &&
+           (payload6 == 7) &&
+           (payload7 == 8) &&
+           (payload8 == 9) &&
+           (payload9 == 10) &&
+           (payload10 == 11) &&
            (payload11 == 12) &&
+           (payload12 == 13) &&
+           (payload13 == 14) &&
+           (payload14 == 15) &&
+           (payload15 == 16) &&
+           (payload16 == 17) &&
+           (payload17 == 18) &&
+           (payload18 == 19) &&
+           (payload19 == 20) &&
+           (payload20 == 21) &&
+           (payload21 == 22) &&
+           (payload22 == 23) &&
            (payload23 == 24) &&
+           (payload24 == 25) &&
+           (payload25 == 26) &&
+           (payload26 == 27) &&
+           (payload27 == 28) &&
+           (payload28 == 29) &&
+           (payload29 == 30) &&
+           (payload30 == 31) &&
            (payload31 == 32),
-           "F2HOneWayMsg32: Unexpected payload");*/
+           "F2HOneWayMsg32: Unexpected payload");
+
+
 }
 
 
@@ -158,6 +205,10 @@ UINT64
 RRRTEST_SERVER_CLASS::F2HTwoWayMsg1(
     UINT64 payload)
 {
+
+    VERIFY(payload == 0x12345678abcdef2b,
+           "F2HOneWayMsg1 unexpected payload: " << payload);
+
     // return the bitwise-inverted payload
     return ~payload;
 }
@@ -182,11 +233,24 @@ RRRTEST_SERVER_CLASS::F2HTwoWayMsg16(
     UINT64 payload14,
     UINT64 payload15)
 {
-/*    VERIFY((payload0 == 1) &&
+    VERIFY((payload0 == 1) &&
+           (payload1 == 2) &&
+           (payload2 == 3) &&
+           (payload3 == 4) &&
+           (payload4 == 5) &&
+           (payload5 == 6) &&
+           (payload6 == 7) &&
+           (payload7 == 8) &&
+           (payload8 == 9) &&
+           (payload9 == 10) &&
+           (payload10 == 11) &&
            (payload11 == 12) &&
+           (payload12 == 13) &&
+           (payload13 == 14) &&
+           (payload14 == 15) &&
            (payload15 == 16),
            "F2HTwoWayMsg16: Unexpected payload");
-*/
+
     OUT_TYPE_F2HTwoWayMsg16 r;
     r.return0 = 1;
     r.return1 = 2;

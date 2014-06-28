@@ -37,7 +37,7 @@
 #include "awb/provides/connected_application.h"
 #include "awb/rrr/service_ids.h"
 #include "awb/provides/clocks_device.h"
-#include "awb/provides/starter_device.h"
+#include "awb/provides/starter_service.h"
 #include "awb/provides/li_base_types.h"
 #include "awb/provides/multifpga_switch.h"
 #include "awb/provides/umf.h"
@@ -232,5 +232,5 @@ CONNECTED_APPLICATION_CLASS::Main()
     }
 
     // Tell the starter device that we finished                                                                          
-    STARTER_DEVICE_SERVER_CLASS::GetInstance()->End(0);
+    STARTER_SERVICE_SERVER_CLASS::GetInstance()->End(0);
 }
