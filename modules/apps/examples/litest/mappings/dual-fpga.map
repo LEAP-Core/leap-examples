@@ -1,6 +1,6 @@
-model -> FPGA0;
-common_services -> FPGA1;
-connected_application -> FPGA0;
+model -> fpga0;
+common_services -> fpga1;
+connected_application -> fpga0;
 
 
 
