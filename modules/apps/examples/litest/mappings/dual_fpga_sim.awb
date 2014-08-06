@@ -1,0 +1,14 @@
+%name LI Test Dual Sim Mapping
+%desc This file maps the test li program to two simulators
+
+%attributes tool
+
+%provides fpga_mapping
+
+%sources -t FPGAENV_MAPPING -v PUBLIC dual-fpga-sim.map
+
+
+
+
+
+
