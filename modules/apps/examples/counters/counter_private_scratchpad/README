@@ -1,0 +1,4 @@
+Counter Private Scratchpad
+
+This is a simple HW/SW hybrid application that implements a counter in hardware, using a private scratchpad, and uses the the streams device to display the count and status messages from both HW and SW.
+
