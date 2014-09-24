@@ -1,8 +1,8 @@
 
 [Global]
 SaveParameters=0
-Description=A simple counter application, implemented using a private scratchpad, with the external memory interface responses stored in a register.
-File=counter_private_scratchpad_register_hybrid_exe
+Description=A simple counter application, implemented using a private scratchpad, with the external memory interface responses stored in a register and statemachine support implemented using StmtFSM.
+File=counter_private_scratchpad_register_stmtfsm_hybrid_exe
 Version=2.2
 Name=Counter Private Scratchpad
 DefaultBenchmark=config/bm/leap/demos.cfx/benchmarks/null.cfg
@@ -38,8 +38,8 @@ File=config/pm/leap/submodels/fpgaenv/fpgaenv-hybrid-exe-local-scratchpad.apm
 Packagehint=leap
 
 [Soft Services Hybrid Application Environment/Requires]
-connected_application=Counter Private Scratchpad Register
+connected_application=Counter Private Scratchpad Register with StmtFSM
 
-[Counter Private Scratchpad Register]
-File=modules/apps/examples/counters/counter_private_scratchpad/counter-private-scratchpad-register.awb
+[Counter Private Scratchpad Register with StmtFSM]
+File=modules/apps/examples/counter/counter_private_scratchpad/counter-private-scratchpad-register-stmtfsm.awb
 Packagehint=leap-examples

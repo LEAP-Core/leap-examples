@@ -1,10 +1,10 @@
 
 [Global]
 SaveParameters=0
-Description=A simple counter application, implemented using a private scratchpad, with the external memory interface responses stored in a register and statemachine support implemented using StmtFSM.
-File=counter_private_scratchpad_register_stmtfsm_hybrid_exe
+Description=A simple counter application, implemented using a private hardware register.
+File=counter_private_register_hybrid_exe
 Version=2.2
-Name=Counter Private Scratchpad
+Name=Counter Private Register
 DefaultBenchmark=config/bm/leap/demos.cfx/benchmarks/null.cfg
 Type=Leap
 Class=Asim::Model
@@ -22,7 +22,7 @@ Packagehint=leap
 
 [HW/SW Hybrid Pipeline Build/Requires]
 project_common=Default Hybrid Project Common Utilities
-fpgaenv=Hybrid Simulation FPGA Environment - Local Memory Scratchpad
+fpgaenv=Hybrid Simulation FPGA Environment - No Memory
 application_env=Soft Services Hybrid Application Environment
 
 [HW/SW Hybrid Pipeline Build]
@@ -33,13 +33,13 @@ Packagehint=leap
 File=modules/leap/build-support/project/application-env/soft-services/application-env-hybrid-soft-service.awb
 Packagehint=leap
 
-[Hybrid Simulation FPGA Environment - Local Memory Scratchpad]
-File=config/pm/leap/submodels/fpgaenv/fpgaenv-hybrid-exe-local-scratchpad.apm
+[Soft Services Hybrid Application Environment/Requires]
+connected_application=Counter Private Register
+
+[Hybrid Simulation FPGA Environment - No Memory]
+File=config/pm/leap/submodels/fpgaenv/fpgaenv-hybrid-exe-no-memory.apm
 Packagehint=leap
 
-[Soft Services Hybrid Application Environment/Requires]
-connected_application=Counter Private Scratchpad Register with StmtFSM
-
-[Counter Private Scratchpad Register with StmtFSM]
-File=modules/apps/examples/counters/counter_private_scratchpad/counter-private-scratchpad-register-stmtfsm.awb
+[Counter Private Register]
+File=modules/apps/examples/counter/counter_private_register/counter-private-register.awb
 Packagehint=leap-examples
