@@ -9,7 +9,7 @@
 
 %attributes rrrtest unconnected hybrid
 
-%provides hybrid_application
+%provides connected_application
 
 %notes rrrtest.txt
 

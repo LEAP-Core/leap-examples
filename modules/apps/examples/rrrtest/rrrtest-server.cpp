@@ -5,7 +5,7 @@
 
 #include "asim/syntax.h"
 #include "asim/rrr/service_ids.h"
-#include "asim/provides/hybrid_application.h"
+#include "asim/provides/connected_application.h"
 
 using namespace std;
 

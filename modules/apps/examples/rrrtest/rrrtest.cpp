@@ -44,13 +44,13 @@
 #include "asim/syntax.h"
 #include "asim/ioformat.h"
 #include "asim/rrr/service_ids.h"
-#include "asim/provides/hybrid_application.h"
+#include "asim/provides/connected_application.h"
 #include "asim/provides/clocks_device.h"
 
 using namespace std;
 
 // constructor
-HYBRID_APPLICATION_CLASS::HYBRID_APPLICATION_CLASS(
+CONNECTED_APPLICATION_CLASS::CONNECTED_APPLICATION_CLASS(
     VIRTUAL_PLATFORM vp)
 {
     // instantiate client stub
@@ -58,19 +58,19 @@ HYBRID_APPLICATION_CLASS::HYBRID_APPLICATION_CLASS(
 }
 
 // destructor
-HYBRID_APPLICATION_CLASS::~HYBRID_APPLICATION_CLASS()
+CONNECTED_APPLICATION_CLASS::~CONNECTED_APPLICATION_CLASS()
 {
     delete clientStub;
 }
 
 void
-HYBRID_APPLICATION_CLASS::Init()
+CONNECTED_APPLICATION_CLASS::Init()
 {
 }
 
 // main
 void
-HYBRID_APPLICATION_CLASS::Main()
+CONNECTED_APPLICATION_CLASS::Main()
 {
     UINT64 cycles;
     UINT64 test_length  = testIterSwitch.Value();

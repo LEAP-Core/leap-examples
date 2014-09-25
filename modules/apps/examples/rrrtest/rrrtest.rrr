@@ -1,6 +1,6 @@
 service RRRTEST
 {
-    server hw (bsv, method) <- sw (cpp, method)
+    server hw (bsv, connection) <- sw (cpp, method)
     {
         method F2HOneWayTest     (in UINT8[8] which, in UINT64[64] length, out UINT64[64] cycles);
         method F2HTwoWayTest     (in UINT8[8] which, in UINT64[64] length, out UINT64[64] cycles);
@@ -36,7 +36,7 @@ service RRRTEST
                               in UINT64[64] payload15);
     };
 
-    server sw (cpp, method) <- hw (bsv, method)
+    server sw (cpp, method) <- hw (bsv, connection)
     {
         method F2HOneWayMsg1 (in UINT64[64] payload);
 

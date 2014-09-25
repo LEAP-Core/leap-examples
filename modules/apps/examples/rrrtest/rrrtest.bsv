@@ -23,6 +23,7 @@
 `include "asim/provides/virtual_devices.bsh"
 `include "asim/provides/physical_platform.bsh"
 `include "asim/provides/low_level_platform_interface.bsh"
+`include "awb/provides/soft_connections.bsh"
 
 `include "asim/rrr/service_ids.bsh"
 `include "asim/rrr/server_stub_RRRTEST.bsh"
@@ -55,14 +56,11 @@ STATE deriving(Bits,Eq);
 typedef Bit#(64) PAYLOAD;
 
 // mkApplication
+module [CONNECTED_MODULE] mkConnectedApplication ();
 
-module mkApplication#(VIRTUAL_PLATFORM vp)();
-
-    LowLevelPlatformInterface llpi = vp.llpint;
-    
     // instantiate stubs
-    ServerStub_RRRTEST serverStub <- mkServerStub_RRRTEST(llpi.rrrServer);
-    ClientStub_RRRTEST clientStub <- mkClientStub_RRRTEST(llpi.rrrClient);
+    ServerStub_RRRTEST serverStub <- mkServerStub_RRRTEST();
+    ClientStub_RRRTEST clientStub <- mkClientStub_RRRTEST();
     
     // counters
     Reg#(Bit#(64)) curTick              <- mkReg(0);
