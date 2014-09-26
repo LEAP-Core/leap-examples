@@ -384,4 +384,6 @@ CONNECTED_APPLICATION_CLASS::Main()
     // done!
     cout << "\n";
     cout << "Tests Complete!\n";
+
+    STARTER_SERVICE_SERVER_CLASS::GetInstance()->End(0);
 }
