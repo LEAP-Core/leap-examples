@@ -1,5 +1,5 @@
 `include "soft_connections.bsh"
-`include "front_panel_service.bsh"
+`include "front_panel.bsh"
 
 import calculation4x4::*;
 
