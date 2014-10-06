@@ -9,12 +9,10 @@
 
 %attributes counter unconnected hybrid
 
-%provides hybrid_application
+%provides hardware_system
 
 %notes counter_system.txt
 
 %public mkCounter.bsv System.bsv
-%public counter-system.h
-%private counter-system.cpp
 
 %AWB_END

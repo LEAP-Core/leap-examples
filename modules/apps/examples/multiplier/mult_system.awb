@@ -9,13 +9,10 @@
 
 %attributes multiplier_system unconnected hybrid
 
-%provides hybrid_application
+%provides hardware_system
 
 %notes multiplier-system.txt
 
 %public Multiplier.bsv System.bsv 
-%public multiplier-system.h
-%private multiplier-system.cpp
-
 
 %AWB_END

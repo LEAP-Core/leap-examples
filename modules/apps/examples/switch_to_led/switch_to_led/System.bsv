@@ -1,22 +1,26 @@
 import Counter::*;
 
-`include "virtual_platform.bsh"
-`include "virtual_devices.bsh"
-`include "low_level_platform_interface.bsh"
-`include "physical_platform.bsh"
+`include "soft_connections.bsh"
 `include "front_panel.bsh"
+`include "awb/provides/librl_bsv_base.bsh"
 
-module mkApplication#(VIRTUAL_PLATFORM vp)();
+module [CONNECTED_MODULE] mkSystem ();
 
-    // instantiate virtual devices
-    FrontPanel      fp      = vp.virtualDevices.frontPanel;
+    // Instantiate interface to the front_panel device.
+    Connection_Send#(FRONTP_MASKED_LEDS)    link_leds     <- mkConnection_Send("fpga_leds");
+    Connection_Receive#(FRONTP_SWITCHES)    link_switches <- mkConnection_Receive("fpga_switches");
+
 
     Counter         counter <- mkCounter();
     Reg#(Bit#(16))  state   <- mkReg(0);
 
 
     rule step0(state == 0);
-        Bit#(8) extended = zeroExtend(fp.readSwitches());
+        // Receive update from switch device
+        FRONTP_SWITCHES sw = link_switches.receive();
+        link_switches.deq();
+
+        Bit#(8) extended = zeroExtend(sw);
         counter.load(extended);
         state <= 1;
     endrule
@@ -24,7 +28,8 @@ module mkApplication#(VIRTUAL_PLATFORM vp)();
     rule step1(state == 1);
         let value = counter.read();
 
-        fp.writeLEDs(truncate(value), '1);
+        // Update the LEDs with the new switch value
+        link_leds.send(FRONTP_MASKED_LEDS{ state: resize(value), mask: ~0 });
         state <= 2;
     endrule
 

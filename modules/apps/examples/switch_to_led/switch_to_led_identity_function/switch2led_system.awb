@@ -9,12 +9,10 @@
 
 %attributes switch2led unconnected hybrid
 
-%provides hybrid_application
+%provides hardware_system
 
 %notes   switch2led_system.txt
 
 %public  System.bsv
-%public  switch2led-system.h
-%private switch2led-system.cpp
 
 %AWB_END

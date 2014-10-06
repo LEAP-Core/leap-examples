@@ -1,16 +1,16 @@
 
-`include "virtual_platform.bsh"
-`include "virtual_devices.bsh"
-`include "physical_platform.bsh"
+`include "soft_connections.bsh"
 `include "front_panel.bsh"
+`include "awb/provides/librl_bsv_base.bsh"
 
 import Multiplier::*;
 
+module [CONNECTED_MODULE] mkSystem ();
 
-module mkApplication#(VIRTUAL_PLATFORM vp)();
-
-    // instantiate virtual devices
-    FrontPanel      fp = vp.virtualDevices.frontPanel;
+    // Instantiate interface to the front_panel device.
+    Connection_Send#(FRONTP_MASKED_LEDS)    link_leds     <- mkConnection_Send("fpga_leds");
+    Connection_Receive#(FRONTP_SWITCHES)    link_switches <- mkConnection_Receive("fpga_switches");
+    Connection_Receive#(FRONTP_BUTTON_INFO) link_buttons  <- mkConnection_Receive("fpga_buttons");
 
     /* state */
     Multiplier      mult        <- mkMultiplier();
@@ -23,8 +23,13 @@ module mkApplication#(VIRTUAL_PLATFORM vp)();
 
     /* rules */
     rule latchSwitches(True);
-        Bit#(4) switchVector = fp.readSwitches();
-        Bit#(5) buttonVector = fp.readButtons();
+        FRONTP_SWITCHES sw = link_switches.receive();
+        FRONTP_BUTTON_INFO btns = link_buttons.receive();
+        link_switches.deq();
+        link_buttons.deq();
+
+        Bit#(4) switchVector = resize(pack(sw));
+        Bit#(5) buttonVector = resize(pack(btns));
 
         in1 <= zeroExtend(switchVector[1:0]);
         in2 <= zeroExtend(switchVector[3:2]);
@@ -44,8 +49,7 @@ module mkApplication#(VIRTUAL_PLATFORM vp)();
     endrule: waitForResult
 
     rule outputResult(state == 2);
-        fp.writeLEDs(truncate(result),'1);
-
+        link_leds.send(FRONTP_MASKED_LEDS{ state: resize(result), mask: ~0 });
         state <= 3;
     endrule: outputResult
 
