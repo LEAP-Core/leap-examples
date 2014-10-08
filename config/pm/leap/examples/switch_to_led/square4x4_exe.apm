@@ -27,11 +27,11 @@ hardware_system=Switch in to LED out system
 calculation4x4=Switch2led - 4x4 square
 
 [Switch2led - 4x4 square]
-File=modules/apps/examples/switch_to_led_system/calculation4x4/square/square4x4.awb
+File=modules/apps/examples/switch_to_led/switch_to_led_pluggable_submodule/calculation4x4/square/square4x4.awb
 Packagehint=leap-examples
 
 [Switch in to LED out system]
-File=modules/apps/examples/switch_to_led_system/switch_to_led_system.awb
+File=modules/apps/examples/switch_to_led/switch_to_led_pluggable_submodule/switch_to_led_system.awb
 Packagehint=leap-examples
 
 [Default Hybrid Project Common Utilities]
