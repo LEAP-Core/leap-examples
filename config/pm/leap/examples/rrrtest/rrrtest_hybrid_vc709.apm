@@ -1,0 +1,45 @@
+
+[Global]
+SaveParameters=0
+Description=RRR Test and Benchmarking Program for VC709 PCIe
+File=rrrtest_hybrid_vc709
+Version=2.2
+Name=RRR Test and Benchmarking Program for VC709 PCIe
+DefaultBenchmark=config/bm/leap/demos.cfx/benchmarks/null.cfg
+Type=Leap
+Class=Asim::Model
+DefaultRunOpts=
+RootName=HW/SW Hybrid Pipeline Build
+RootProvides=model
+
+[Model]
+DefaultAttributes=rrrtest hybrid project
+model=HW/SW Hybrid Pipeline Build
+
+[Bluespec RRR Test and Benchmarking Program]
+File=modules/apps/examples/rrrtest/rrrtest.awb
+Packagehint=leap-examples
+
+[Default Hybrid Project Common Utilities]
+File=config/pm/leap/submodels/common/project-common-default.apm
+Packagehint=leap
+
+[HW/SW Hybrid Pipeline Build/Requires]
+project_common=Default Hybrid Project Common Utilities
+fpgaenv=Hybrid VC709 PCIe FPGA Environment - No Memory/Central Cache (Vivado)
+application_env=Soft Services Hybrid Application Environment
+
+[HW/SW Hybrid Pipeline Build]
+File=modules/leap/build-support/project/project-pipeline.awb
+Packagehint=leap
+
+[Soft Services Hybrid Application Environment]
+File=modules/leap/build-support/project/application-env/soft-services/application-env-hybrid-soft-service.awb
+Packagehint=leap
+
+[Soft Services Hybrid Application Environment/Requires]
+connected_application=Bluespec RRR Test and Benchmarking Program
+
+[Hybrid VC709 PCIe FPGA Environment - No Memory/Central Cache (Vivado)]
+File=config/pm/leap/submodels/fpgaenv/fpgaenv-hybrid-vc709-pcie-no-mem-vivado.apm
+Packagehint=leap
