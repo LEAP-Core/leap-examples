@@ -102,6 +102,7 @@ CONNECTED_APPLICATION_CLASS::Main()
     //
     // perform one-way test with short messages
     //
+    RRRTEST_SERVER_CLASS::GetInstance()->ResetPayload();
     cycles = clientStub->F2HOneWayTest(0, test_length);
 
     // compute results
@@ -126,6 +127,7 @@ CONNECTED_APPLICATION_CLASS::Main()
     //
     // perform one-way test with 64 byte messages
     //
+    RRRTEST_SERVER_CLASS::GetInstance()->ResetPayload();
     cycles = clientStub->F2HOneWayTest(1, test_length);
 
     // compute results
@@ -153,6 +155,7 @@ CONNECTED_APPLICATION_CLASS::Main()
         //
         // perform one-way test with 128 byte messages
         //
+        RRRTEST_SERVER_CLASS::GetInstance()->ResetPayload();
         cycles = clientStub->F2HOneWayTest(2, test_length);
 
         // compute results
@@ -179,6 +182,7 @@ CONNECTED_APPLICATION_CLASS::Main()
         //
         // perform one-way test with 256 byte messages
         //
+        RRRTEST_SERVER_CLASS::GetInstance()->ResetPayload();
         cycles = clientStub->F2HOneWayTest(3, test_length);
 
         // compute results
@@ -210,10 +214,12 @@ CONNECTED_APPLICATION_CLASS::Main()
     //
     // perform one-way test with 64 byte messages
     //
+    RRRTEST_SERVER_CLASS::GetInstance()->ResetPayload();
     clientStub->H2FOneWayTest(0, test_length);
 
     for (UINT64 i = 0; i < test_length; i++)
     {
+        RRRTEST_SERVER_CLASS::GetInstance()->ResetPayload();
         clientStub->H2FOneWayMsg8(0, 1, 2, 3, 4, 5, 6, 7);
     }
 
@@ -245,10 +251,12 @@ CONNECTED_APPLICATION_CLASS::Main()
         //
         // perform one-way test with 128 byte messages
         //
+        RRRTEST_SERVER_CLASS::GetInstance()->ResetPayload();
         clientStub->H2FOneWayTest(1, test_length);
 
         for (UINT64 i = 0; i < test_length; i++)
         {
+            RRRTEST_SERVER_CLASS::GetInstance()->ResetPayload();
             clientStub->H2FOneWayMsg16(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15);
         }
 
@@ -280,6 +288,7 @@ CONNECTED_APPLICATION_CLASS::Main()
     //
     // perform two-way test
     //
+    RRRTEST_SERVER_CLASS::GetInstance()->ResetPayload();
     cycles = clientStub->F2HTwoWayTest(0, test_length);
 
     // compute results
@@ -306,6 +315,7 @@ CONNECTED_APPLICATION_CLASS::Main()
     //
     if (longTestsSwitch.Value() != 0)
     {
+        RRRTEST_SERVER_CLASS::GetInstance()->ResetPayload();
         cycles = clientStub->F2HTwoWayTest(1, test_length);
 
         // compute results
@@ -332,6 +342,7 @@ CONNECTED_APPLICATION_CLASS::Main()
     //
     // perform two-way pipelined test
     //
+    RRRTEST_SERVER_CLASS::GetInstance()->ResetPayload();
     cycles = clientStub->F2HTwoWayPipeTest(0, test_length);
 
     // compute results
@@ -358,6 +369,7 @@ CONNECTED_APPLICATION_CLASS::Main()
         //
         // perform big two-way pipelined test
         //
+        RRRTEST_SERVER_CLASS::GetInstance()->ResetPayload();
         cycles = clientStub->F2HTwoWayPipeTest(1, test_length);
 
         // compute results

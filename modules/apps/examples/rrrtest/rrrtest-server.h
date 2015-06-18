@@ -24,6 +24,7 @@ class RRRTEST_SERVER_CLASS: public RRR_SERVER_CLASS,
 
     // server stub
     RRR_SERVER_STUB serverStub;
+    UINT64 pidx;
 
   public:
     RRRTEST_SERVER_CLASS();
@@ -37,9 +38,16 @@ class RRRTEST_SERVER_CLASS: public RRR_SERVER_CLASS,
     void Uninit();
     void Cleanup();
 
+    bool MatchPayload(UINT64 payload, UINT64 i)
+    {
+        return (payload == ((pidx << 8) + i));
+    }
+
     //
     // RRR service methods
     //
+    void   ResetPayload() { pidx = 0; }
+
     void   F2HOneWayMsg1(UINT64 payload);
 
     void   F2HOneWayMsg8(UINT64 payload0,

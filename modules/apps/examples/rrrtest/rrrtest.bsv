@@ -69,14 +69,13 @@ module [CONNECTED_MODULE] mkConnectedApplication ();
     Reg#(Bit#(64)) outstandingResponses <- mkReg(0);
     
     // test payload
-    PAYLOAD payload = 'h12345678abcdef2b;
+    Reg#(PAYLOAD) payload <- mkRegU();
     
     // state
     Reg#(STATE) state <- mkReg(STATE_idle);
     
     // count FPGA cycles
     rule tick (True);
-        
         if (curTick == '1)
         begin
             curTick <= 0;
@@ -85,20 +84,20 @@ module [CONNECTED_MODULE] mkConnectedApplication ();
         begin
             curTick <= curTick + 1;
         end
-        
     endrule
     
     //
     // FPGA -> Host one-way test
     //
     rule start_f2h_oneway_test (state == STATE_idle);
-        
         // accept request from host
         let test <- serverStub.acceptRequest_F2HOneWayTest();
         
         // start the clock and let it rip
         timer      <= curTick;
         testLength <= test.length;
+        payload    <= 0;
+
         if (test.which == 0)
             state <= STATE_f2hOneWay1;
         else if (test.which == 1)
@@ -107,38 +106,46 @@ module [CONNECTED_MODULE] mkConnectedApplication ();
             state <= STATE_f2hOneWay16;
         else
             state <= STATE_f2hOneWay32;
-        
     endrule
     
+    function PAYLOAD f2hp(PAYLOAD p);
+        Bit#(8) x = truncate(p);
+        return truncate({ payload, x });
+    endfunction
+
     rule do_f2h_oneway_test1 (state == STATE_f2hOneWay1 && testLength != 0);
-        
-        clientStub.makeRequest_F2HOneWayMsg1(payload);
+        clientStub.makeRequest_F2HOneWayMsg1(f2hp(1));
         testLength <= testLength - 1;
-        
+        payload <= payload + 1;
     endrule
     
     rule do_f2h_oneway_test8 (state == STATE_f2hOneWay8 && testLength != 0);
-        
-        clientStub.makeRequest_F2HOneWayMsg8(1, 2, 3, 4, 5, 6, 7, 8);
+        clientStub.makeRequest_F2HOneWayMsg8(f2hp(1), f2hp(2), f2hp(3), f2hp(4),
+                                             f2hp(5), f2hp(6), f2hp(7), f2hp(8));
         testLength <= testLength - 1;
-        
+        payload <= payload + 1;
     endrule
     
     rule do_f2h_oneway_test16 (state == STATE_f2hOneWay16 && testLength != 0);
-        
-        clientStub.makeRequest_F2HOneWayMsg16(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16);
+        clientStub.makeRequest_F2HOneWayMsg16(f2hp(1), f2hp(2), f2hp(3), f2hp(4),
+                                              f2hp(5), f2hp(6), f2hp(7), f2hp(8),
+                                              f2hp(9), f2hp(10), f2hp(11), f2hp(12),
+                                              f2hp(13), f2hp(14), f2hp(15), f2hp(16));
         testLength <= testLength - 1;
-        
+        payload <= payload + 1;
     endrule
     
     rule do_f2h_oneway_test32 (state == STATE_f2hOneWay32 && testLength != 0);
-        
-        clientStub.makeRequest_F2HOneWayMsg32(1, 2, 3, 4, 5, 6, 7, 8,
-                                              9, 10, 11, 12, 13, 14, 15, 16,
-                                              17, 18, 19, 20, 21, 22, 23, 24,
-                                              25, 26, 27, 28, 29, 30, 31, 32);
+        clientStub.makeRequest_F2HOneWayMsg32(f2hp(1), f2hp(2), f2hp(3), f2hp(4),
+                                              f2hp(5), f2hp(6), f2hp(7), f2hp(8),
+                                              f2hp(9), f2hp(10), f2hp(11), f2hp(12),
+                                              f2hp(13), f2hp(14), f2hp(15), f2hp(16),
+                                              f2hp(17), f2hp(18), f2hp(19), f2hp(20),
+                                              f2hp(21), f2hp(22), f2hp(23), f2hp(24),
+                                              f2hp(25), f2hp(26), f2hp(27), f2hp(28),
+                                              f2hp(29), f2hp(30), f2hp(31), f2hp(32));
         testLength <= testLength - 1;
-        
+        payload <= payload + 1;
     endrule
     
     rule finish_f2h_oneway_test (((state == STATE_f2hOneWay1) ||
@@ -154,7 +161,6 @@ module [CONNECTED_MODULE] mkConnectedApplication ();
         serverStub.sendResponse_F2HOneWayTest(cycles);
         
         state <= STATE_idle;
-        
     endrule
 
 
@@ -162,18 +168,18 @@ module [CONNECTED_MODULE] mkConnectedApplication ();
     // Host -> FPGA one-way test
     //
     rule start_h2f_oneway_test (state == STATE_idle);
-        
         // accept request from host
         let test <- serverStub.acceptRequest_H2FOneWayTest();
         
         // start the clock and let it rip
         timer      <= curTick;
         testLength <= test.length;
+        payload    <= 0;
+
         if (test.which == 0)
             state <= STATE_h2fOneWay8;
         else if (test.which == 1)
             state <= STATE_h2fOneWay16;
-        
     endrule
 
     Reg#(Bit#(64)) f2hAccum <- mkReg(0);
@@ -235,6 +241,8 @@ module [CONNECTED_MODULE] mkConnectedApplication ();
         // start the clock and let it rip
         timer      <= curTick;
         testLength <= test.length;
+        payload    <= 0;
+
         if (test.which == 0)
             state <= STATE_f2hTwoWayReq1;
         else
@@ -243,10 +251,9 @@ module [CONNECTED_MODULE] mkConnectedApplication ();
     endrule
     
     rule do_f2h_twoway_test_req1 (state == STATE_f2hTwoWayReq1 && testLength != 0);
-        
-        clientStub.makeRequest_F2HTwoWayMsg1(payload);
+        clientStub.makeRequest_F2HTwoWayMsg1(f2hp(1));
         state <= STATE_f2hTwoWayResp1;
-
+        payload <= payload + 1;
     endrule
 
     rule do_f2h_twoway_test_resp1 (state == STATE_f2hTwoWayResp1);
@@ -258,18 +265,18 @@ module [CONNECTED_MODULE] mkConnectedApplication ();
     endrule
     
     rule do_f2h_twoway_test_req16 (state == STATE_f2hTwoWayReq16 && testLength != 0);
-        
-        clientStub.makeRequest_F2HTwoWayMsg16(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16);
+        clientStub.makeRequest_F2HTwoWayMsg16(f2hp(1), f2hp(2), f2hp(3), f2hp(4),
+                                              f2hp(5), f2hp(6), f2hp(7), f2hp(8),
+                                              f2hp(9), f2hp(10), f2hp(11), f2hp(12),
+                                              f2hp(13), f2hp(14), f2hp(15), f2hp(16));
         state <= STATE_f2hTwoWayResp16;
-
+        payload <= payload + 1;
     endrule
 
     rule do_f2h_twoway_test_resp16 (state == STATE_f2hTwoWayResp16);
-        
         let dummy <- clientStub.getResponse_F2HTwoWayMsg16();
         state <= STATE_f2hTwoWayReq16;
         testLength <= testLength - 1;
-
     endrule
     
     rule finish_f2h_twoway_test (((state == STATE_f2hTwoWayReq1) ||
@@ -283,33 +290,31 @@ module [CONNECTED_MODULE] mkConnectedApplication ();
         serverStub.sendResponse_F2HTwoWayTest(cycles);
         
         state <= STATE_idle;
-        
     endrule
     
     //
     // FPGA -> Host two-way test (pipelined)
     //
     rule start_f2h_twoway_pipe_test (state == STATE_idle);
-        
         // accept request from host
         let test <- serverStub.acceptRequest_F2HTwoWayPipeTest();
         
         // start the clock and let it rip
-        timer                 <= curTick;
-        testLength            <= test.length;
+        timer       <= curTick;
+        testLength  <= test.length;
+        payload     <= 0;
+
         outstandingResponses  <= test.length;
         if (test.which == 0)
             state <= STATE_f2hTwoWayPipe1;
         else
             state <= STATE_f2hTwoWayPipe16;
-        
     endrule
     
     rule do_f2h_twoway_pipe_test_req1 ((state == STATE_f2hTwoWayPipe1) && (testLength != 0));
-        
-        clientStub.makeRequest_F2HTwoWayMsg1(payload);
+        clientStub.makeRequest_F2HTwoWayMsg1(f2hp(1));
         testLength <= testLength - 1;
-
+        payload <= payload + 1;
     endrule
 
     rule do_f2h_twoway_pipe_test_resp1 ((state == STATE_f2hTwoWayPipe1) && (outstandingResponses != 0));
@@ -320,24 +325,23 @@ module [CONNECTED_MODULE] mkConnectedApplication ();
     endrule
     
     rule do_f2h_twoway_pipe_test_req16 ((state == STATE_f2hTwoWayPipe16) && (testLength != 0));
-        
-        clientStub.makeRequest_F2HTwoWayMsg16(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16);
+        clientStub.makeRequest_F2HTwoWayMsg16(f2hp(1), f2hp(2), f2hp(3), f2hp(4),
+                                              f2hp(5), f2hp(6), f2hp(7), f2hp(8),
+                                              f2hp(9), f2hp(10), f2hp(11), f2hp(12),
+                                              f2hp(13), f2hp(14), f2hp(15), f2hp(16));
         testLength <= testLength - 1;
-
+        payload <= payload + 1;
     endrule
 
     rule do_f2h_twoway_pipe_test_resp16 ((state == STATE_f2hTwoWayPipe16) && (outstandingResponses != 0));
-        
         let dummy <- clientStub.getResponse_F2HTwoWayMsg16();
         outstandingResponses <= outstandingResponses - 1;
-
     endrule
     
     rule finish_f2h_twoway_pipe_test (((state == STATE_f2hTwoWayPipe1) ||
                                        (state == STATE_f2hTwoWayPipe16)) &&
                                       (testLength == 0) &&
                                       (outstandingResponses == 0));
-        
         // stop the clock and measure the time
         Bit#(64) cycles = curTick - timer;
         
@@ -345,7 +349,6 @@ module [CONNECTED_MODULE] mkConnectedApplication ();
         serverStub.sendResponse_F2HTwoWayPipeTest(cycles);
         
         state <= STATE_idle;
-        
     endrule
     
 endmodule
