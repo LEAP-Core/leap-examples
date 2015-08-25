@@ -241,7 +241,7 @@ module [CONNECTED_MODULE] mkHlsApBusMemConnection#(MEMORY_IFC#(t_MEM_ADDR, t_MEM
               Alias#(Bit#(t_AP_DATA_SZ), t_AP_DATA));
 
     FIFOLevelIfc#(Tuple3#(t_USER_ADDR, t_USER_ADDR, Bool), 16) reqQ <- mkFIFOLevel();
-    FIFOF#(t_AP_DATA) writeDataQ <- mkSizedFIFOF(4);
+    FIFOF#(t_AP_DATA) writeDataQ <- mkSizedFIFOF(8);
     Reg#(Bool) busWriteBurstPending <- mkReg(False);
     Reg#(t_AP_ADDR) burstSize <- mkReg(unpack(0));
     Reg#(t_AP_ADDR) writeDataNum <- mkReg(unpack(0));
