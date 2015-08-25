@@ -1,0 +1,40 @@
+%name HLS AXI BUS TEST generated AWB
+%desc HLS AXI BUS TEST generated AWB
+
+%attributes hls_mem_test test
+
+%provides hardware_system
+
+
+%sources -t BSV     -v PUBLIC hls-core-bsv-wrapper.bsv
+%sources -t BSV     -v PUBLIC hls-core-interfaces.bsv
+%sources -t BSV     -v PUBLIC leap-hls-mem-test.bsv
+%sources -t VERILOG -v PUBLIC hls_core_verilog_wrapper.v
+%sources -t VERILOG -v PUBLIC hls_axi_bus_test.v
+%sources -t VERILOG -v PUBLIC hls_axi_bus_test_buf.v
+%sources -t VERILOG -v PUBLIC hls_axi_bus_test_mem0_m_axi.v
+%sources -t DICT    -v PUBLIC leap-hls-mem-test.dic
+
+%param --global MEMORY_ADDR_BITS                30   "memory address bits for LEAP scratchpad memory"
+%param --global TEST_DATA_BITS                  32   "test data size"
+%param --global HLS_AP_BUS_NUM                   0   "number of HLS ap bus interfaces"
+%param --global HLS_AP_BUS_ADDR_BITS            32   "size of memory address used in HLS ap bus"
+%param --global HLS_AP_BUS_DATA_BITS            32   "size of data used in HLS ap bus"
+%param --global HLS_AXI_BUS_NUM                  1   "number of HLS axi bus interfaces"
+%param --global HLS_AXI_BUS0_ADDR_BITS          32   "size of memory address used in HLS axi bus"
+%param --global HLS_AXI_BUS0_DATA_BITS          32   "size of data used in HLS axi bus"
+%param --global HLS_AXI_BUS0_ID_BITS             1   "size of HLS axi bus id"
+%param --global HLS_AP_IN_FIFO_DATA_BITS        32   "size of data used in HLS input ap fifo"
+%param --global HLS_AP_OUT_FIFO_DATA_BITS       32   "size of data used in HLS output ap fifo"
+%param --global MEM_TEST_MEMORY_PORT_NUM         1   "number of scratchpad ports"
+%param --global MEM_TEST_MULTI_PORT_MEM_ENABLE   0   "use scratchpad with multiple read ports"
+%param --global MEM_TEST_PVT_CACHE_ENABLE        1   "enable scratchpad private cache"
+%param --global MEM_TEST_REQ_MERGE_ENABLE        0   "enable request merging"
+%param --global MEM_TEST_DEBUG_ENABLE            1   "enable debugging"
+%param --global MEM_TEST_STATS_ENABLE            1   "enable stats recording"
+%param --global MEM_TEST_STDIO_DEBUG_ENABLE      1   "enable debugging using stdio"
+%param --dynamic MEM_TEST_VERBOSE                0   "0: disable, 1: enable verbose output"
+
+
+%param SYNTH_BOUNDARY mkSystem "name of synthesis boundary"
+

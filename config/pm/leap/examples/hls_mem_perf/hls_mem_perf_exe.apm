@@ -1,0 +1,55 @@
+
+[Global]
+SaveParameters=0
+Description=Hls Mem Perf Test Model
+File=hls_mem_perf_exe
+Version=2.2
+Name=Hls Mem Perf Test Model
+DefaultBenchmark=config/bm/leap/demos.cfx/benchmarks/null.cfg
+Type=Leap
+Class=Asim::Model
+DefaultRunOpts=
+RootName=HW/SW Hybrid Pipeline Build
+RootProvides=model
+
+[Model]
+DefaultAttributes=scratchpad_test test connected slave hybrid project exe
+model=HW/SW Hybrid Pipeline Build
+
+[Default Hybrid Project Common Utilities]
+File=config/pm/leap/submodels/common/project-common-default.apm
+Packagehint=leap
+
+[Soft Services Hybrid Application Environment]
+File=modules/leap/build-support/project/application-env/soft-services/application-env-hybrid-soft-service.awb
+Packagehint=leap
+
+[HW/SW Hybrid Pipeline Build/Requires]
+project_common=Default Hybrid Project Common Utilities
+fpgaenv=Hybrid Verilog Simulation FPGA Environment
+application_env=Soft Services Hybrid Application Environment
+
+[Soft Services Hybrid Application Environment/Requires]
+connected_application=HLS Scratchpad Perf Test Connected Application
+
+[HW/SW Hybrid Pipeline Build]
+File=modules/leap/build-support/project/project-pipeline.awb
+Packagehint=leap
+
+[Hybrid Verilog Simulation FPGA Environment]
+File=config/pm/leap/submodels/fpgaenv/fpgaenv-hybrid-vexe.apm
+Packagehint=leap
+
+
+
+
+[HLS Scratchpad Perf Test Connected Application]
+File=modules/apps/examples/hls_mem_perf/leap_model/connected_application/connected-application-test.awb
+Packagehint=leap-examples
+
+[HLS Scratchpad Perf Test Connected Application/Requires]
+hls_mem_perf_system=HLS Mem Perf System
+
+[HLS Mem Perf System]
+File=modules/apps/examples/hls_mem_perf/leap_model/hls-mem-perf.awb
+Packagehint=leap-examples

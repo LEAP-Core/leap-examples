@@ -1,0 +1,13 @@
+
+Scripts are provided to generate HLS kernel wrappers (in both verilog and Bluespec)
+in order to speed up the integration with LEAP platform. 
+
+Currently we only support three kinds of interfaces exposed from HLS kernels: ap_bus, 
+ap_fifo, and axi_bus
+
+Usage: generate_hls_model.sh [options]
+       -c, --clean           Clean generated project and files 
+       -v, --gen-verilog     Run vivado_hls to generate verilog files
+       -l, --gen-leap-model  Generate wrappers and leap model
+       -a, --all             Default: Run the entire flow (clean, gen-verilog, gen-leap-model)
+
